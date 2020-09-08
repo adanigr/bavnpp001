@@ -1,0 +1,132 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogRecalendarizacion" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="true" title="{i18n>RecalendarizacionTitulo}" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<!-- Inicio de Tabla Recalendarización de Unidad -->
+			<uitab:Table id="tableRecal" rows="{RecalendarizacionCollection>/}" selectionMode="MultiToggle">
+				<uitab:columns>
+					<!--Columna de "Sociedad" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="82" autoResizable="true">
+						<Text text="{i18n>filtroSociedad}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{RecalendarizacionCollection>companyCode}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Centro" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="66" autoResizable="true">
+						<Text text="{i18n>filtroCentro}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{RecalendarizacionCollection>center}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Segmento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="segment" filterProperty="segment" minWidth="87" autoResizable="true">
+						<Text text="{i18n>colSegment}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{RecalendarizacionCollection>segment}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Vin\Chasis\No.Serie" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="serial" filterProperty="serial" minWidth="167" autoResizable="true">
+						<Text text="{i18n>colChasis}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{RecalendarizacionCollection>serial}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Tipo de Financiamiento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="fundSubType_ID" filterProperty="fundSubType_ID" minWidth="120" autoResizable="true">
+						<Text text="{i18n>colTipofina}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{RecalendarizacionCollection>fundSubType_ID}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Posición"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="secuence" filterProperty="secuence" minWidth="76" autoResizable="true">
+						<Text text="{i18n>colPos}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{RecalendarizacionCollection>secuence}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna Financiera Actual-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="finSrv_finCode" filterProperty="finSrv_finCode" minWidth="123" autoResizable="true">
+						<Text text="{i18n>FinancieraActual}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{RecalendarizacionCollection>finSrv_finCode}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Moneda"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="currency" filterProperty="currency" minWidth="120" autoResizable="true">
+						<Text text="{i18n>colMonFin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{RecalendarizacionCollection>currency}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna Saldo Financiamiento-->
+					<uitab:Column hAlign="Right" width='auto' sortProperty="balanceAmt" filterProperty="balanceAmt" minWidth="150" autoResizable="true">
+						<Text text="{i18n>colSalFin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'RecalendarizacionCollection>balanceAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }"
+								wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Fecha Inicio" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="dateStart" filterProperty="dateStart" minWidth="160" autoResizable="true">
+						<Text text="{i18n>fecini}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<DatePicker
+								value="{path:'RecalendarizacionCollection>dateStart', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"
+								required="true" change="handleFechaInicio"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Dias de Financiamiento"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="finDays" filterProperty="finDays" minWidth="115" autoResizable="true">
+						<Text text="{i18n>colDayFinanci}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input value="{RecalendarizacionCollection>finDays}" change="onFinDays" required="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Número recalendarización"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="numRecal" filterProperty="numRecal" minWidth="150" autoResizable="true">
+						<Text text="{i18n>colnewNumRecalend}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{RecalendarizacionCollection>numRecal}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Fecha Fin"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="dateEnd" filterProperty="dateEnd" minWidth="150" autoResizable="true">
+						<Text text="{i18n>fecfin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'RecalendarizacionCollection>dateEnd', type: 'sap.ui.model.type.Date'}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Intereses a Pagar"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="intRecalAmt" filterProperty="intRecalAmt" minWidth="150" autoResizable="true">
+						<Text text="{i18n>colINTAPagar}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input value="{RecalendarizacionCollection>intRecalAmt}" required="true" liveChange="oValidCaracter"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+				<uitab:footer>
+					<Label
+						text="{i18n>SumTrasUni}: { path: 'oImporteSumatoria>/sumatoriaTraspaso', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }"/>
+				</uitab:footer>
+			</uitab:Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>BtnAnular}" icon="sap-icon://decline" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="_onButtonAnular"/>
+			<Button text="{i18n>BtnCopyReplicar}" icon="sap-icon://copy" type="Neutral" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="oCopyRecalenda"/>
+			<Button text="{i18n>Apcambios}" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress"/>
+			<Button text="{i18n>cerrarDialogo}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonClose"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

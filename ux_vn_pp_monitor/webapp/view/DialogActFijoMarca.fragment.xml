@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>filtroMarca}" class="sapUiPopupWithPadding"
+		items="{ path:'modeloCatalog>/CaractSet', filters : [ { path : 'Charactname', operator : 'EQ', value1 : 'ZAP_MARCA'} ], templateShareable:true }"
+		showClearButton="true" search="_onSearchMarca" confirm="_onConfirmMarca" cancel="_onCanelMarca" multiSelect="false"
+		rememberSelections="false" id="sdMarcaa">
+		<StandardListItem iconDensityAware="false" iconInset="false" title="{modeloCatalog>ValueCharLong}"
+			description="{modeloCatalog>DescriptionLong}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

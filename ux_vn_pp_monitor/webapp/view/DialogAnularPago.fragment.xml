@@ -1,0 +1,112 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogAnularPago" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="{i18n>AnularPagoTitulo}" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<uitab:Table id="anularPago" enableBusyIndicator="true"
+				rows="{ path: 'modeloOperation>/FinancedItemsPaymentsSet', sorter: [{ path: 'financedItem/companyCode', descending: false }, { path: 'financedItem/serial', descending: false }, { path: 'secuence', descending: false }], parameters : {expand:'financedItem'}, filters : [ { path : 'secuence', operator : 'EQ', value1 : 0} ]}"
+				selectionMode="MultiToggle" width="100%">
+				<uitab:extension>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<ToggleButton icon="sap-icon://complete" id="btnSinAnu" text="{i18n>AnuPagoSinAn}" tooltip="{i18n>AnuPagoActive}" press="_onPressSinAnu"/>
+					</OverflowToolbar>
+				</uitab:extension>
+				<uitab:rowSettingsTemplate>
+					<uitab:RowSettings
+						highlight="{ parts: ['modeloOperation>sapSTBLGKZ','modeloOperation>flagDel', 'modeloOperation>flagMulti'], formatter: '.formatter.StatusColorPago' }"/>
+				</uitab:rowSettingsTemplate>
+				<uitab:columns>
+					<uitab:Column sortProperty="companyCode" filterProperty="companyCode" minWidth="100" autoResizable="true" tooltip="{i18n>colSociedad}">
+						<Text text="{i18n>colSociedad}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/companyCode}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column sortProperty="center" filterProperty="center" minWidth="70" autoResizable="true" tooltip="{i18n>colCentro}">
+						<Text text="{i18n>colCentro}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/center}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="serial" filterProperty="serial" minWidth="200" autoResizable="true" tooltip="{i18n>colChasis}">
+						<Text text="{i18n>colChasis}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/serial}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="fundSubType_ID" filterProperty="fundSubType_ID" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colTipo}">
+						<Text text="{i18n>colTipo}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/fundSubType_ID}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="secuence" filterProperty="secuence" minWidth="100" autoResizable="true" tooltip="{i18n>colPosTool}">
+						<Text text="{i18n>colPos}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>secuence}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="currency" filterProperty="currency" minWidth="100" autoResizable="true"
+						tooltip="{i18n>filtroMoneda}">
+						<Text text="{i18n>filtroMoneda}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/currency}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="datePay" filterProperty="datePay" minWidth="100" autoResizable="true" tooltip="{i18n>coldatePay}">
+						<Text text="{i18n>coldatePay}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>datePay}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="payedAmt" filterProperty="payedAmt" minWidth="100" autoResizable="true"
+						tooltip="{i18n>anularimporte}">
+						<Text text="{i18n>anularimporte}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>payedAmt}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column sortProperty="sapBELNRKZ" filterProperty="sapBELNRKZ" minWidth="70" autoResizable="true" tooltip="{i18n>anulardocukz}">
+						<Text text="{i18n>anulardocukz}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{modeloOperation>sapBELNRKZ}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="sapBELNRFD" filterProperty="sapBELNRFD" minWidth="100" autoResizable="true"
+						tooltip="{i18n>anulardocufd}">
+						<Text text="{i18n>anulardocufd}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>sapBELNRFD}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="sapGJAHRKZ" filterProperty="sapGJAHRKZ" minWidth="100" autoResizable="true"
+						tooltip="{i18n>ejercicio}">
+						<Text text="{i18n>ejercicio}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>sapGJAHRKZ}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="sapSTBLGKZ" filterProperty="sapSTBLGKZ" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colFlagDel}">
+						<Text text="{i18n>colsapSTBLGKZ}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>sapSTBLGKZ}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+			</uitab:Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>borraranu}" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonAnular"/>
+			<Button text="{i18n>cancelaranu}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonClose"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

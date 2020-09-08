@@ -1,0 +1,41 @@
+ID,sapVKORG,finServ_fincode,description,lineMXN,lineUSD,balanceMXN,balanceUSD,diffPerMXN,diffPerUSD,finDays,graceDays,flagNew,flagUsed,flagDemo,flagCession,flagAccesory
+ab6011fc-a73a-4a1c-8600-eea1b2669caa,0100,BBVA,Ford Tlalnepantla - BBVA - Nuevos  Cesion y Demo,5000000,5000000,5000000,5000000,1.3,0,180,0,true,false,true,true,false
+493891c6-2379-4947-9fe7-94f967244a43,0100,BBVA,Ford Tlalnepantla - BBVA  - Usados,5000000,5000000,5000000,5000000,1.3,0,180,0,false,true,false,false,false
+b61d643c-1309-47ee-9752-339df23c216d,0100,SCOTIA,Ford Tlalnepantla - Scotiabank - Nuevos,5000000,5000000,5000000,5000000,1.3,0,120,0,true,false,false,false,false
+28a2158e-ba04-4a5f-94f7-bf4c4e2db116,0100,SCOTIA,Ford Tlalnepantla - Scotiabank - Usados,5000000,5000000,5000000,5000000,1.3,0,120,0,false,true,false,false,false
+13d52cd6-84a2-4c06-9092-c088c99e5301,0100,SCOTIA,Ford Tlalnepantla - Scotiabank - Cesion y demo,5000000,5000000,5000000,5000000,1.3,0,120,0,false,false,true,true,false
+3bc480e2-5c62-4712-a131-3e2b5322635b,0200,SCOTIA,Mazda Tlalnepantla - Scotiabank - Nuevos,5000000,5000000,5000000,5000000,1.3,0,120,0,true,false,false,false,false
+fadd8a79-172f-4b1b-b483-4bf4e6e5ecb0,0200,SCOTIA,Mazda Tlalnepantla - Scotiabank - Usados,5000000,5000000,5000000,5000000,1.3,0,120,0,false,true,false,false,false
+f5dd139a-45fd-433d-9547-85a0d135387e,0200,SCOTIA,Mazda Tlalnepantla - Scotiabank - Cesion y Demo,5000000,5000000,5000000,5000000,1.3,0,120,0,false,false,true,true,false
+0f8c8336-5050-4920-af9f-a72020b344ac,0200,BBVA,Mazda Tlalnepantla - BBVA - Nuevos,5000000,5000000,5000000,5000000,1.3,0,180,0,true,false,false,false,false
+7d0391b6-36b9-402a-a5db-99a3a6aba480,0200,BBVA,Mazda Tlalnepantla - BBVA - Usados,5000000,5000000,5000000,5000000,1.3,0,180,0,false,true,false,false,false
+231dae63-168d-4a23-acdb-30feed212a3d,0200,BBVA,Mazda Tlalnepantla - BBVA - Cesion y Demo,5000000,5000000,5000000,5000000,1.3,0,180,0,false,false,true,true,false
+ea487466-29fc-4c6b-973d-f4290307ddcc,4100,BBVA,Camiones Tlalnepantla - BBVA - Nuevos ,5000000,5000000,5000000,5000000,1.6,2.7,180,0,true,true,true,true,false
+79b71532-509c-460a-9382-f3dddc5ef5ce,4100,BBVA,Camiones Tlalnepantla - BBVA - Accesorios ,5000000,5000000,5000000,5000000,1.6,2.7,180,0,false,false,false,false,true
+0baade32-a57f-4336-b739-2b7e70f43cb1,4100,DAIMLER,Camiones Tlalnepantla - DAIMLER - Nuevos ,5000000,5000000,5000000,5000000,3.9,4.9,360,0,true,true,true,true,false
+0efb86c5-9af7-4b9f-b4af-9eb29b31f8d7,4100,DAIMLER,Camiones Tlalnepantla - DAIMLER - Accesorios ,5000000,5000000,5000000,5000000,3.9,4.9,360,0,false,false,false,false,true
+58fb4636-4151-467c-95b1-ded650306a47,4100,SCOTIA,Camiones Tlalnepantla - Scotiabank - Nuevos ,5000000,5000000,5000000,5000000,1.6,2.8,120,0,true,true,true,true,false
+236c2ba2-892d-4ab1-b64d-300fd620c9c6,4100,SCOTIA,Camiones Tlalnepantla - Scotiabank - Accesorios ,5000000,5000000,5000000,5000000,1.6,2.8,120,0,false,false,false,false,true
+32c93a64-4687-4aa8-b110-ed8184e61bf5,4100,CORP,Camiones Tlalnepantla - CORPORATIVO ZAPATA,5000000,5000000,5000000,5000000,0,0,360,0,true,true,true,true,true
+99ba9835-5cf8-4516-ac55-74f9bd8ba8f0,4100,SANT_CAP,Camiones Tlalnepantla - LÍNEA CAPITAL SANTANDER,5000000,5000000,5000000,5000000,3.9,4.9,360,0,true,true,true,true,true
+752f1442-4a51-4a94-a5e9-e6936bacd7b5,4101,DAIMLER,Camiones Tlalnepantla - DAIMLER,5000000,5000000,5000000,5000000,3.9,4.9,360,0,true,true,true,true,true
+2f3805b4-fdcf-45d0-8993-21676beddbef,4102,DAIMLER,Camiones Tlalnepantla - DAIMLER,5000000,5000000,5000000,5000000,3.9,4.9,360,0,true,true,true,true,true
+4fe9896a-68d0-4e92-ab65-93c168ab453d,4103,DAIMLER,Camiones Tlalnepantla - DAIMLER,5000000,5000000,5000000,5000000,3.9,4.9,360,0,true,true,true,true,true
+ed809f17-3ff5-4139-a1e3-4d890705c317,4104,DAIMLER,Camiones Tlalnepantla - DAIMLER,5000000,5000000,5000000,5000000,3.9,4.9,360,0,true,true,true,true,true
+1363eff1-5b0a-44bc-ab60-c868985eb4aa,4105,DAIMLER,Camiones Tlalnepantla - DAIMLER,5000000,5000000,5000000,5000000,3.9,4.9,360,0,true,true,true,true,true
+398f931d-3fcf-4a8d-b7b8-1290953900bc,4106,DAIMLER,Camiones Tlalnepantla - DAIMLER,5000000,5000000,5000000,5000000,3.9,4.9,360,0,true,true,true,true,true
+0052d254-42b6-472e-b2c1-e30013a150a0,4107,DAIMLER,Camiones Tlalnepantla - DAIMLER,5000000,5000000,5000000,5000000,3.9,4.9,360,0,true,true,true,true,true
+b1a239c0-5685-4ee1-91cb-29561a0b7253,4101,BBVA,Camiones Tlalnepantla - BBVA,5000000,5000000,5000000,5000000,1.6,2.7,360,0,true,true,true,true,true
+e68430e7-b161-4894-873c-83bd82144aa4,4102,BBVA,Camiones Tlalnepantla - BBVA,5000000,5000000,5000000,5000000,1.6,2.7,360,0,true,true,true,true,true
+30d85e27-75f8-4330-a557-b76397220176,4103,BBVA,Camiones Tlalnepantla - BBVA,5000000,5000000,5000000,5000000,1.6,2.7,360,0,true,true,true,true,true
+216a37a7-1360-4997-85dd-d8f34b71571a,4104,BBVA,Camiones Tlalnepantla - BBVA,5000000,5000000,5000000,5000000,1.6,2.7,360,0,true,true,true,true,true
+a1516322-173e-44aa-8f11-9c9a27048a78,4105,BBVA,Camiones Tlalnepantla - BBVA,5000000,5000000,5000000,5000000,1.6,2.7,360,0,true,true,true,true,true
+051fde9c-3918-4c21-95b1-7ebde17caf84,4106,BBVA,Camiones Tlalnepantla - BBVA,5000000,5000000,5000000,5000000,1.6,2.7,360,0,true,true,true,true,true
+3718e306-a353-416b-b8df-2f1496700895,4107,BBVA,Camiones Tlalnepantla - BBVA,5000000,5000000,5000000,5000000,1.6,2.7,360,0,true,true,true,true,true
+e2d4f477-ec75-421f-bba5-c6112951f68e,4101,SCOTIA,Camiones Tlalnepantla - SCOTIA,5000000,5000000,5000000,5000000,1.6,2.8,360,0,true,true,true,true,true
+1802b6ea-812d-4093-8468-9b89cdfa2171,4102,SCOTIA,Camiones Tlalnepantla - SCOTIA,5000000,5000000,5000000,5000000,1.6,2.8,360,0,true,true,true,true,true
+abddd34c-1bdf-401c-a63d-5fe67cd230f0,4103,SCOTIA,Camiones Tlalnepantla - SCOTIA,5000000,5000000,5000000,5000000,1.6,2.8,360,0,true,true,true,true,true
+f892c480-e940-4a6a-b726-8d4f487f0f8c,4104,SCOTIA,Camiones Tlalnepantla - SCOTIA,5000000,5000000,5000000,5000000,1.6,2.8,360,0,true,true,true,true,true
+51b5d9cf-3d16-40ef-ade1-742c6d21b174,4105,SCOTIA,Camiones Tlalnepantla - SCOTIA,5000000,5000000,5000000,5000000,1.6,2.8,360,0,true,true,true,true,true
+d3fd302a-78fd-4774-a736-22225dcce939,4106,SCOTIA,Camiones Tlalnepantla - SCOTIA,5000000,5000000,5000000,5000000,1.6,2.8,360,0,true,true,true,true,true
+ab0b4ca9-a4f1-4a7a-a371-fbcb5772e3bc,4107,SCOTIA,Camiones Tlalnepantla - SCOTIA,5000000,5000000,5000000,5000000,1.6,2.8,360,0,true,true,true,true,true

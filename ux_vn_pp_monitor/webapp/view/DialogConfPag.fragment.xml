@@ -1,0 +1,163 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogConfPag" xmlns="sap.m"
+	xmlns:uitab="sap.ui.table">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="{i18n>confPaggTitulo}" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<uitab:Table id="tablaConfPag"
+				rows="{ path: 'modeloOperation>/FinancedItemsPaymentsSet', parameters : { expand:'financedItem'}, filters : [ { path : 'secuence', operator : 'EQ', value1 : 0} ]}"
+				selectionMode="None" width="100%">
+				<uitab:columns>
+					<uitab:Column sortProperty="companyCode" filterProperty="companyCode" minWidth="100" autoResizable="true" tooltip="{i18n>colSociedad}">
+						<Text text="{i18n>colSociedad}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/companyCode}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column sortProperty="center" filterProperty="center" minWidth="70" autoResizable="true" tooltip="{i18n>colCentro}">
+						<Text text="{i18n>colCentro}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/center}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="serial" filterProperty="serial" minWidth="200" autoResizable="true" tooltip="{i18n>colChasis}">
+						<Text text="{i18n>colChasis}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/serial}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="fundSubType_ID" filterProperty="fundSubType_ID" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colTipo}">
+						<Text text="{i18n>colTipo}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/fundSubType_ID}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="finSrv_finCode" filterProperty="finSrv_finCode" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colFinan}">
+						<Text text="{i18n>colFinan}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/finSrv_finCode}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Posicion-->
+					<uitab:Column width='auto' sortProperty="secuence" filterProperty="secuence" minWidth="100" autoResizable="true" tooltip="{i18n>colPosTool}">
+						<Text text="{i18n>colPos}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>secuence}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="currency" filterProperty="currency" minWidth="100" autoResizable="true"
+						tooltip="{i18n>filtroMoneda}">
+						<Text text="{i18n>filtroMoneda}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>financedItem/currency}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="balanceAmt" filterType="sap.ui.model.odata.type.String" filterProperty="balanceAmt" minWidth="100"
+						autoResizable="true" tooltip="{i18n>colSalFinan}">
+						<Text text="{i18n>colSalFinan}"/>
+						<uitab:template>
+							<Text text="{ path: 'modeloOperation>financedItem/balanceAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }"
+								wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Imp Pag-->
+					<uitab:Column sortProperty="payedAmt" filterProperty="payedAmt" minWidth="200" autoResizable="true" tooltip="{i18n>colImpPagTool}"
+						hAlign="Right">
+						<Text text="{i18n>colImpPag}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Input id="iImpPagConf" value="{modeloOperation>payedAmt}" required="true" change="onChangeImporte" liveChange="oValidCaracter"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Fecha Pago"-->
+					<uitab:Column width='auto' sortProperty="datePay" filterProperty="datePay" minWidth="200" autoResizable="true"
+						tooltip="{i18n>colFecPagTool}" id="cFechaConf">
+						<Text text="{i18n>colFecPag}"/>
+						<uitab:template>
+							<DatePicker id="dpFechaconfpago" value="{path:'modeloOperation>datePay'}" required="true" change="handleFechaPag"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="sapHBKID" filterProperty="sapHBKID" minWidth="150" autoResizable="true" tooltip="{i18n>colCodBan}">
+						<Text text="{i18n>colCodBan}"/>
+						<uitab:template>
+							<Input id="iCODBCOConfPag" type="Text" value="{modeloOperation>sapHBKID}" placeholder="Seleccione banco..." valueHelpOnly="true"
+								showValueHelp="true" valueHelpRequest="onValueHelpCodBco"></Input>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="sapUKONT" filterProperty="sapUKONT" minWidth="100" autoResizable="true" tooltip="{i18n>colCtaEgr}">
+						<Text text="{i18n>colCtaEgr}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>sapUKONT}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="sapHKTID" filterProperty="sapHKTID" minWidth="100" autoResizable="true" tooltip="{i18n>colIdCta}">
+						<Text text="{i18n>colIdCta}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>sapHKTID}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="sapZLSCH" filterProperty="sapZLSCH" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colSapZLSCH}">
+						<Text text="{i18n>colSapZLSCH}"/>
+						<uitab:template>
+							<Text text="{modeloOperation>sapZLSCH}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Intereses a Pagar"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="intMonthSum" filterProperty="intMonthSum" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colINTAPagar}">
+						<Text text="{i18n>colINTAPagar}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input value="{modeloOperation>intPayAmt}" required="true" change="calCambio" liveChange="oValidCaracterInt"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+				<!--Columna "Layout a generar"-->
+				<uitab:Column hAlign="Center" width='auto' sortProperty="rateValue" filterProperty="rateValue" minWidth="200" autoResizable="true"
+					tooltip="Layout">
+					<Text text="Layout a generar"/>
+					<uitab:template>
+						<Text text="{path: 'modeloOperation>fromAcc' ,formatter: '.formatter.LayoutPaymentN'}" wrapping="true" maxLines="1"/>
+					</uitab:template>
+				</uitab:Column>
+				<!--Columna "Cuenta origen"-->
+				<uitab:Column hAlign="Center" width='auto' sortProperty="rateValue" filterProperty="rateValue" minWidth="200" autoResizable="true"
+					tooltip="Cuenta Origen para usar en layout">
+					<Text text="Cta. Origen"/>
+					<uitab:template>
+						<Text text="{path: 'modeloOperation>fromAcc' ,formatter: '.formatter.LayoutPaymentOrig'}" wrapping="true" maxLines="1"/>
+					</uitab:template>
+				</uitab:Column>
+				<!--Columna "Cuenta destino"-->
+				<uitab:Column hAlign="Center" width='auto' sortProperty="rateValue" filterProperty="rateValue" minWidth="200" autoResizable="true"
+					tooltip="Cuenta Destino para usar en layout">
+					<Text text="Cta. Dest"/>
+					<uitab:template>
+						<ComboBox placeholder="Seleccione..." id="cbCtaDestCP" items="{ path: 'BancoProveedorSet>/', templateShareable:false}"
+							change="onValidateCtaDest" enabled="{path: 'modeloOperation>fromAcc' ,formatter: '.formatter.LayoutPaymentCtaDest'}"
+							selectedKey="{modeloOperation>destAcc}">
+							<core:Item
+								key="{BancoProveedorSet>Bankn}|*|{BancoProveedorSet>Koinh}|*|{BancoProveedorSet>Bkref}|*|{BancoProveedorSet>Bkext}|*|{BancoProveedorSet>Bankl}|*|{modeloOperation>financedItem/unidadID}"
+								text="{BancoProveedorSet>Bankn} {BancoProveedorSet>Bkref}: {BancoProveedorSet>Koinh}"/>
+						</ComboBox>
+					</uitab:template>
+				</uitab:Column>
+				<uitab:footer>
+					<Label text="{i18n>colImpPag}: {oImporteSuma>/sumatoriaConfirmacionPago}"/>
+				</uitab:footer>
+			</uitab:Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>BtnCopyReplicar}" icon="sap-icon://copy" type="Neutral" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="oCopyConfPag"/>
+			<Button text="{i18n>confPagSave}" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="onButtonPress"/>
+			<Button text="{i18n>cerrarDialogo}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="onButtonPressClose"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

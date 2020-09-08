@@ -1,0 +1,45 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic" xmlns:f="sap.ui.layout.form" controllerName="vn.pp.ux_vn_pp_config.controller.RateTypesValues_001_new"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<semantic:SemanticPage id="RateTypesValues_001_new" headerPinnable="false" toggleHeaderOnTitleClick="true"
+		preserveHeaderStateOnScroll="false" headerExpanded="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="RateTypesValues_001_new"/>
+		</semantic:titleHeading>
+		<!-- Header Content -->
+		<semantic:headerContent></semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<Panel class="sapUiContentPadding">
+				<f:SimpleForm id="formRateTypesValues_001_new" editable="true" layout="ResponsiveGridLayout" title="{i18n>newItem}" labelSpanXL="3"
+					labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+					columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						<Label text="{i18n>rateType}" required="true"/>
+						<Select id="iTipoTasa_RateTypesValues_001_new" selectedKey="{HelpValues>/RateTypesValues_001_new/rate}"
+							items="{ path: 'modeloCatalog>/RateTypes', templateSharable: false }">
+							<core:Item key="{modeloCatalog>rate}" text="{modeloCatalog>rate}"/>
+						</Select>
+						<Label text="{i18n>rateDate}" required="true"/>
+						<DatePicker id="dpRateDate"
+							value="{path:'HelpValues>/RateTypesValues_001_new/date', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"/>
+						<Label text="{i18n>rateValue}" required="true"/>
+						<Input value="{HelpValues>/RateTypesValues_001_new/rateValue}" change="onValidateRate"></Input>
+					</f:content>
+				</f:SimpleForm>
+				<List id="listRateTypesValues_001_new" visible="false"
+					items="{ path: 'modeloConfig>/RateTypesValues_001', parameters : {$$updateGroupId : 'RateTypesValues_001_new'}, filters : [ { path : 'rate', operator : 'EQ', value1 : 'XXXX'} ]}">
+					<StandardListItem title="{modeloConfig>rate}"/>
+				</List>
+			</Panel>
+		</semantic:content>
+		<!-- Semantic Footer Buttons -->
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveAction" text="{i18n>txtGuardar}" press="onSave"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button id="cancelAction" text="{i18n>txtDescartar}" press="onDiscard"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

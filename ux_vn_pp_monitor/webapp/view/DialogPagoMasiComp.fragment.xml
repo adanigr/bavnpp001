@@ -1,0 +1,139 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogPagoMasiComp" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="true" title="{i18n>pagocompeTitulo}" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+				visible="true" displayInline="false">
+				<items>
+					<Label text="Tipo de Cambio:" design="Standard" width="auto" required="false" textAlign="Begin" textDirection="Inherit" visible="true"
+						class="sapUiSmallMargin"/>
+					<Text text="12.12" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"
+						class="sapUiSmallMarginTop sapUiSmallMarginEnd"/>
+					<Text text="USD" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"
+						class="sapUiSmallMarginTop"/>
+				</items>
+				<layoutData/>
+			</HBox>
+			<!-- Inicio de Tabla Pago Por Compensación -->
+			<uitab:Table id="tablacompmas" rows="{PagCompCollection>/}" selectionMode="None" width="100%">
+				<uitab:columns>
+					<!--Columna de "VIN" -->
+					<uitab:Column width='auto' sortProperty="serial" filterProperty="serial" minWidth="200" autoResizable="true" tooltip="{i18n>colChasis}">
+						<Text text="{i18n>colChasis}"/>
+						<uitab:template>
+							<Text text="{PagCompCollection>serial}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Matricula" -->
+					<uitab:Column sortProperty="plateNum" filterProperty="plateNum" minWidth="80" autoResizable="true" tooltip="{i18n>mat}">
+						<Text text="{i18n>mat}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{PagCompCollection>plateNum}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "tipo de Financiamiento" -->
+					<uitab:Column width='auto' sortProperty="fundSubType_ID" filterProperty="fundSubType_ID" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colTipofina}">
+						<Text text="{i18n>colTipofina}"/>
+						<uitab:template>
+							<Text text="{PagCompCollection>fundSubType_ID}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Pos" -->
+					<uitab:Column width='auto' sortProperty="secuence" filterProperty="secuence" minWidth="100" autoResizable="true" tooltip="{i18n>colPosTool}">
+						<Text text="{i18n>colPos}"/>
+						<uitab:template>
+							<Text text="{PagCompCollection>secuence}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Centro" -->
+					<uitab:Column sortProperty="center" filterProperty="center" minWidth="70" autoResizable="true" tooltip="{i18n>colCentro}">
+						<Text text="{i18n>colCentro}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{PagCompCollection>center}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Moneda -->
+					<uitab:Column sortProperty="currency" filterProperty="currency" minWidth="70" autoResizable="true" tooltip="{i18n>filtroMoneda}">
+						<Text text="{i18n>filtroMoneda}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{PagCompCollection>currency}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!-- Costo-->
+					<uitab:Column sortProperty="costAmt" filterProperty="costAmt" minWidth="100" autoResizable="true" tooltip="{i18n>colImpUniTool}"
+						hAlign="Right">
+						<Text text="{i18n>colImpUni}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{ path: 'PagCompCollection>costAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Imp Fin" -->
+					<uitab:Column sortProperty="financedAmt" filterProperty="financedAmt" minWidth="100" autoResizable="true" tooltip="{i18n>colImpFinTool}"
+						hAlign="Right">
+						<Text text="{i18n>colImpFin}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{ path: 'PagCompCollection>financedAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Sal Fin" -->
+					<uitab:Column sortProperty="balanceAmt" filterProperty="balanceAmt" minWidth="100" autoResizable="true" tooltip="{i18n>colSalFinTool}"
+						hAlign="Right">
+						<Text text="{i18n>colSalFin}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{ path: 'PagCompCollection>balanceAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Pendiente Liquidar" -->
+					<uitab:Column sortProperty="PENDLIQ" filterProperty="PENDLIQ" minWidth="100" autoResizable="true" tooltip="{i18n>filtropendliq}"
+						hAlign="Right">
+						<Text text="{i18n>filtropendliq}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{PagCompCollection>PENDLIQ}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "importe a Pagar" -->
+					<uitab:Column sortProperty="payedAmt" filterProperty="payedAmt" minWidth="200" autoResizable="true" tooltip="{i18n>pago}" hAlign="Right">
+						<Text text="{i18n>pago}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Input id="iImpPagCompMasv" value="{path:'PagCompCollection>payedAmt', type:'sap.ui.model.type.Currency'}" required="true"
+								change="onChangePagoMasi" liveChange="oValidCaracter"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Cambio de Moneda" -->
+					<uitab:Column sortProperty="tcamb" filterProperty="tcamb" minWidth="200" autoResizable="true" tooltip="{i18n>tablaBtnTipoCam}"
+						hAlign="Right">
+						<Text text="{i18n>tablaBtnTipoCam}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Input id="tipcamCompMasv" value="{PagCompCollection>tcamb}" required="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "F. Pago (PLD)" -->
+					<uitab:Column sortProperty="FPAGO" filterProperty="FPAGO" minWidth="200" autoResizable="true" tooltip="{i18n>fpago}" hAlign="Right">
+						<Text text="{i18n>fpago}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Input id="fpagopldCompMasv" value="{PagCompCollection>FPAGO}" required="true"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+				<uitab:footer>
+					<Label
+						text="{i18n>pago}: { path: 'oImporteSumatoria>/sumatoriaCompMasivoPago', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }"/>
+				</uitab:footer>
+			</uitab:Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>BtnCopyReplicar}" icon="sap-icon://copy" type="Neutral" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="oCopyPagoComp"/>
+			<Button text="{i18n>tablaBtnConfPag}" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress"/>
+			<Button text="{i18n>cancelaranu}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonClose"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

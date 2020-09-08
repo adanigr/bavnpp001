@@ -1,0 +1,64 @@
+{
+	"namespace": "Z_OD_SCP_CORE_0001_SRV",
+	"definitions": {
+		"Z_OD_SCP_CORE_0001_SRV.SociedadSet": {
+			"kind": "entity",
+			"@cds.persistence.skip": true,
+			"elements": {
+				"Bukrs": {
+					"key": true,
+					"type": "cds.String",
+					"length": 4
+				},
+				"Butxt": {
+					"type": "cds.String",
+					"length": 25
+				},
+				"Sort2": {
+					"type": "cds.String",
+					"length": 20
+				}
+			}
+		},
+		"Z_OD_SCP_CORE_0001_SRV.CentrosSet": {
+			"kind": "entity",
+			"@cds.persistence.skip": true,
+			"elements": {
+				"Bukrs": {
+					"key": true,
+					"type": "cds.String",
+					"length": 4
+				},
+				"Werks": {
+					"key": true,
+					"type": "cds.String",
+					"length": 4
+				},
+				"Name1": {
+					"type": "cds.String",
+					"length": 30
+				}
+			}
+		},
+		"Z_OD_SCP_CORE_0001_SRV.AlmacenesSet": {
+			"kind": "entity",
+			"@cds.persistence.skip": true,
+			"elements": {
+				"Werks": {
+					"key": true,
+					"type": "cds.String",
+					"length": 4
+				},
+				"Lgort": {
+					"key": true,
+					"type": "cds.String",
+					"length": 4
+				},
+				"Lgobe": {
+					"type": "cds.String",
+					"length": 16
+				}
+			}
+		}
+	}
+}

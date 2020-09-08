@@ -1,0 +1,41 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic" xmlns:f="sap.ui.layout.form" controllerName="vn.pp.ux_vn_pp_config.controller.FundTypes_001_new"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<semantic:SemanticPage id="FundTypes_001_new" headerPinnable="false" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+		headerExpanded="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="FundTypes_001_new"/>
+		</semantic:titleHeading>
+		<!-- Header Content -->
+		<semantic:headerContent></semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<Panel class="sapUiContentPadding">
+				<f:SimpleForm id="formFundTypes_001_new" editable="true" layout="ResponsiveGridLayout" title="{i18n>newItem}" labelSpanXL="3" labelSpanL="3"
+					labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+					columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						<Label text="{i18n>IDFundType}" required="true"/>
+						<Input value="{HelpValues>/FundTypes_001_new/ID}"></Input>
+						<Label text="{i18n>description}" required="true"/>
+						<Input value="{HelpValues>/FundTypes_001_new/description}"></Input>
+						<Label text="{i18n>active}"/>
+						<CheckBox selected="{HelpValues>/FundTypes_001_new/active}" id="cbflagUnitPayInterest"/>
+					</f:content>
+				</f:SimpleForm>
+				<List id="listFundTypes_001_new" visible="false"
+					items="{ path: 'modeloConfig>/FundTypes_001', parameters : {$$updateGroupId : 'FundTypes_001_new'}, filters : [ { path : 'ID', operator : 'EQ', value1 : 'XXXX'} ]}">
+					<StandardListItem title="{modeloConfig>ID}"/>
+				</List>
+			</Panel>
+		</semantic:content>
+		<!-- Semantic Footer Buttons -->
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveAction" text="{i18n>txtGuardar}" press="onSave"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button id="cancelAction" text="{i18n>txtDescartar}" press="onDiscard"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

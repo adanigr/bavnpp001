@@ -1,0 +1,220 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogTrasUnidad" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="true" title="{i18n>trasunidadTitulo}" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<!-- Inicio de Tabla Traspaso de Unidad -->
+			<uitab:Table id="tablaTrasUni" rows="{TrasUnidadCollection>/}" selectionMode="None">
+				<uitab:columns>
+					<!--Columna de "Sociedad" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="82" autoResizable="true"
+						tooltip="{i18n>filtroSociedad}">
+						<Text text="{i18n>filtroSociedad}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>companyCode}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Centro" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="66" autoResizable="true"
+						tooltip="{i18n>filtroCentro}">
+						<Text text="{i18n>filtroCentro}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>center}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Segmento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="segment" filterProperty="segment" minWidth="87" autoResizable="true"
+						tooltip="{i18n>colSegment}">
+						<Text text="{i18n>colSegment}"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>segment}" wrapping="false" maxLines="1"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Vin\Chasis\No.Serie" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="serial" filterProperty="serial" minWidth="167" autoResizable="true"
+						tooltip="{i18n>colChasis}">
+						<Text text="{i18n>colChasis}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>serial}" wrapping="false" maxLines="1"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Tipo de Financiamiento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="fundSubType_ID" filterProperty="fundSubType_ID" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colTipofina}">
+						<Text text="{i18n>colTipofina}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>fundSubType_ID}" wrapping="false" maxLines="1"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Posición"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="secuence" filterProperty="secuence" minWidth="76" autoResizable="true"
+						tooltip="{i18n>colPos}">
+						<Text text="{i18n>colPos}"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>secuence}" wrapping="false" maxLines="1"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Moneda"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="currency" filterProperty="currency" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colMonFin}">
+						<Text text="{i18n>colMonFin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>currency}" wrapping="false" maxLines="1"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna Financiera Actual-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="finSrv_finCode" filterProperty="finSrv_finCode" minWidth="123" autoResizable="true"
+						tooltip="{i18n>FinancieraActual}">
+						<Text text="{i18n>FinancieraActual}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>finSrv_finCode}" wrapping="false" maxLines="1"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Importe a Financiar" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="financedAmt" filterProperty="financedAmt" minWidth="150" autoResizable="true"
+						tooltip="{i18n>importaFinan}">
+						<Text text="{i18n>importaFinan}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input enabled="false" value="{path:'TrasUnidadCollection>financedAmt'}" required="true" change="onChangeImporte"
+								liveChange="oValidCaracter"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Fecha Inicio" -->
+					<uitab:Column hAlign="Center" sortProperty="dateStart" filterProperty="dateStart" minWidth="180" autoResizable="true"
+						tooltip="{i18n>fecini}">
+						<Text text="{i18n>fecini}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<DatePicker
+								value="{path:'TrasUnidadCollection>dateStart', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"
+								required="true" change="handleFechaInicio"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Importe de Intereses"-->
+					<uitab:Column width='auto' sortProperty="interestAmt" filterProperty="interestAmt" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colImpItnt}">
+						<Text text="{i18n>colImpItnt}"/>
+						<uitab:template>
+							<Input value="{path: 'TrasUnidadCollection>interestAmt'}" change="onFinDays" required="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Cta. Egreso" -->
+					<uitab:Column hAlign="Center" sortProperty="accExpense" filterProperty="accExpense" minWidth="200" autoResizable="true"
+						tooltip="{i18n>colCtaEgr}">
+						<Text text="{i18n>colCtaEgr}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input type="Text" value="{TrasUnidadCollection>accExpense}" placeholder="Seleccione Cta. Egreso" valueHelpOnly="true" showValueHelp="true"
+								valueHelpRequest="onValueHelpAccExpense"></Input>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Financiera Nueva-->
+					<uitab:Column hAlign="Center" sortProperty="newFinSrv_finCode" filterProperty="newFinSrv_finCode" minWidth="200" autoResizable="true"
+						tooltip="{i18n>filtroFinancieraNueva}">
+						<Text text="{i18n>filtroFinancieraNueva}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<ComboBox change="onValidateFinSrv" items="{ path:'modeloCatalog>/FinSet', templateShareable:false }"
+								selectedKey="{TrasUnidadCollection>newFinSrv_finCode}">
+								<core:Item key="{modeloCatalog>finCode}" text="{modeloCatalog>finCode}: {modeloCatalog>description}"/>
+							</ComboBox>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Cta. Ingreso"-->
+					<uitab:Column hAlign="Center" sortProperty="accIncome" filterProperty="accIncome" minWidth="200" autoResizable="true"
+						tooltip="{i18n>colCtaIngreso}">
+						<Text text="{i18n>colCtaIngreso}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input type="Text" value="{TrasUnidadCollection>accIncome}" placeholder="Seleccione Cta. Ingreso..." valueHelpOnly="true"
+								showValueHelp="true" valueHelpRequest="onValueHelpAccIncome"></Input>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Dias de Financiamiento"-->
+					<uitab:Column hAlign="Center" sortProperty="finDays" filterProperty="finDays" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colDayFinanci}">
+						<Text text="{i18n>colDayFinanci}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input value="{TrasUnidadCollection>finDays}" change="onFinDays" required="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Fecha Fin"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="dateEnd" filterProperty="dateEnd" minWidth="150" autoResizable="true"
+						tooltip="{i18n>fecfin}">
+						<Text text="{i18n>fecfin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'TrasUnidadCollection>dateEnd', type: 'sap.ui.model.type.Date'}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Tipo de Tasa"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="rateType" filterProperty="rateType" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colTTasa}">
+						<Text text="{i18n>colTTasa}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>rateType}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Valor de Tasa"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="rateValue" filterProperty="rateValue" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colTVal}">
+						<Text text="{i18n>colTVal}"/>
+						<uitab:template>
+							<Text text="{TrasUnidadCollection>rateValue}" wrapping="true" maxLines="1"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Layout a generar"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="rateValue" filterProperty="rateValue" minWidth="200" autoResizable="true"
+						tooltip="Layout">
+						<Text text="Layout a generar"/>
+						<uitab:template>
+							<Text
+								text="{parts: ['TrasUnidadCollection>flagTR_L_BBVA_I', 'TrasUnidadCollection>flagTR_L_BBVA_E','TrasUnidadCollection>flagTR_L_BMX_I','TrasUnidadCollection>flagTR_L_BMX_E'],formatter: '.formatter.LayoutTransferT'}"
+								wrapping="true" maxLines="1"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Cuenta origen"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="rateValue" filterProperty="rateValue" minWidth="200" autoResizable="true"
+						tooltip="Cuenta Origen para usar en layout">
+						<Text text="Cta. Origen"/>
+						<uitab:template>
+							<ComboBox placeholder="Seleccione..." id="cbCtaOrigen" items="{ path: 'BancoPropioSet>/', templateShareable:false }"
+								change="onValidateCtaOrg" selectedKey="{TrasUnidadCollection>flagTR_L_CtaOrg}"
+								enabled="{parts: ['TrasUnidadCollection>flagTR_L_BBVA_I', 'TrasUnidadCollection>flagTR_L_BBVA_E','TrasUnidadCollection>flagTR_L_BMX_I','TrasUnidadCollection>flagTR_L_BMX_E'],formatter: '.formatter.LayoutTransfer'}">
+								<core:Item key="{BancoPropioSet>Bankn}|*|{BancoPropioSet>Bankl}|*|{BancoPropioSet>Refzl}|*|{BancoPropioSet>Bnkn2}"
+									text="{parts: ['TrasUnidadCollection>flagTR_L_BBVA_I', 'TrasUnidadCollection>flagTR_L_BBVA_E','TrasUnidadCollection>flagTR_L_BMX_I','TrasUnidadCollection>flagTR_L_BMX_E','BancoPropioSet>Bankn', 'BancoPropioSet>Bnkn2'],formatter: '.formatter.LayoutTransferCtaOrg'}"/>
+							</ComboBox>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Cuenta destino"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="rateValue" filterProperty="rateValue" minWidth="200" autoResizable="true"
+						tooltip="Cuenta Destino para usar en layout">
+						<Text text="Cta. Dest"/>
+						<uitab:template>
+							<ComboBox placeholder="Seleccione..." id="cbCtaDest" items="{ path: 'BancoProveedorSet>/', templateShareable:false}"
+								change="onValidateCtaDest" selectedKey="{TrasUnidadCollection>flagTR_L_CtaDest}"
+								enabled="{parts: ['TrasUnidadCollection>flagTR_L_BBVA_I', 'TrasUnidadCollection>flagTR_L_BBVA_E','TrasUnidadCollection>flagTR_L_BMX_I','TrasUnidadCollection>flagTR_L_BMX_E'],formatter: '.formatter.LayoutTransfer'}">
+								<core:Item key="{BancoProveedorSet>Bankn}|*|{BancoProveedorSet>Koinh}|*|{BancoProveedorSet>Bkref}|*|{BancoProveedorSet>Bkext}"
+									text="{BancoProveedorSet>Bankn} {BancoProveedorSet>Bkref}: {BancoProveedorSet>Koinh}"/>
+							</ComboBox>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+				<uitab:footer>
+					<Label
+						text="{i18n>SumTrasUni}: { path: 'oImporteSumatoria>/sumatoriaTraspaso', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }"/>
+				</uitab:footer>
+			</uitab:Table>
+			<!-- Fin de Tabla Traspaso de Unidad -->
+		</content>
+		<beginButton/>
+		<!--Inicio de Botones-->
+		<buttons>
+			<Button text="{i18n>BtnCopyReplicar}" icon="sap-icon://copy" type="Neutral" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="_onButtonCopy"/>
+			<Button text="{i18n>confirmartraspaso}" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="_onButtonPress"/>
+			<Button text="{i18n>cerrarDialogo}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonClose"/>
+		</buttons>
+		<!--Fin de Botones-->
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

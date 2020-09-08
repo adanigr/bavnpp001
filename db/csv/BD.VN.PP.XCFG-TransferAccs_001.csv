@@ -1,0 +1,210 @@
+center,finServ_finCode,transType,currency,sapHkont,description,active,flagKA,flag1T,flagIntKZ,flagTL_KA,flagTL_1T,flagTL_KA_FE,flagTL_1T_FE,flagTR_L_BBVA,flagTR_L_BMX
+100,BBVA,E,MXN,1111102412,Bco Egr. Transferencia BBVA-00514,true,false,false,true,false,false,false,false,true,false
+100,BBVA,I,MXN,1111102413,Bco Ingr. BBVA-00514,true,false,false,false,false,false,false,false,true,false
+100,BMX,E,MXN,1111101052,Bco Egr. Transferencia BNMX-01410,true,false,false,false,false,false,false,false,false,true
+100,BMX,I,MXN,1111101053,Bco Ingr. BNMX-01410,true,false,false,false,false,false,false,false,false,true
+100,R00,E,MXN,1111108032,Bco Egr. Transferencia SCO-79852,true,false,false,false,false,false,false,false,false,false
+100,R00,E,MXN,1111102412,Bco Egr. Transferencia BBVA-00514,true,false,false,false,false,false,false,false,true,false
+100,R00,I,MXN,1111102413,Bco Ingr. BBVA-00514,true,false,false,false,false,false,false,false,true,false
+100,R99,E,MXN,1111108032,Bco Egr. Transferencia SCO-79852,true,false,false,false,false,false,false,false,false,false
+100,R99,E,MXN,1111102412,Bco Egr. Transferencia BBVA-00514,true,false,false,false,false,false,false,false,true,false
+100,R99,I,MXN,1111102413,Bco Ingr. BBVA-00514,true,false,false,false,false,false,false,false,true,false
+100,SCOTIA,E,MXN,1111108032,Bco Egr. Transferencia SCO-79852,true,false,false,false,false,false,false,false,false,false
+100,SCOTIA,I,MXN,1111108033,Bco Ingr. SCO-79852,true,false,false,false,false,false,false,false,false,false
+4107,BBVA,E,MXN,1111102492,Bco Egr. Transferencia BBVA-55024,true,false,false,false,false,false,false,false,true,false
+4107,BBVA,E,MXN,1111102482,Bco Egr. Transferencia BBVA-35362,true,false,false,true,false,false,false,false,true,false
+4107,BBVA,I,MXN,1111102483,Bco Ingr. BBVA-35362,true,false,false,false,false,false,false,false,true,false
+4107,BBVA,I,USD,1111202103,Bco Ingr. BBVA-31691,true,false,false,false,false,false,false,false,true,false
+4107,BMX,E,MXN,1111101091,Bco Egr. Cheque BNMX-67910,true,false,false,false,false,false,false,false,false,true
+4107,BMX,I,MXN,1111101091,Bco Egr. Cheque BNMX-67910,true,false,false,false,false,false,false,false,false,true
+4107,DAIMLER,E,MXN,1111102492,Bco Egr. Transferencia BBVA-55024,true,false,false,true,false,false,false,false,true,false
+4107,DAIMLER,E,USD,1111201032,Bco Egr. Transferencia BNMX-26042,true,false,false,true,false,false,false,false,false,true
+4107,DAIMLER,E,MXN,1111102482,Bco Egr. Transferencia BBVA-35362,true,false,false,false,false,false,false,false,true,false
+4107,DAIMLER,I,MXN,1111102483,Bco Ingr. BBVA-35362,true,false,true,false,false,false,false,true,true,false
+4107,SCOTIA,E,MXN,1111102492,Bco Egr. Transferencia BBVA-55024,true,false,true,false,false,false,false,true,true,false
+4107,SCOTIA,I,MXN,1111102483,Bco Ingr. BBVA-35362,true,false,false,false,false,false,false,false,true,false
+4102,BBVA,E,USD,1111202122,Bco Egr. Transferencia BBVA-04177,true,false,false,false,false,false,false,false,true,false
+4102,BBVA,E,MXN,1111102512,Bco Egr. Transferencia BBVA-35363,true,false,false,true,false,false,false,false,true,false
+4102,BBVA,I,USD,1111202123,Bco Ingr. BBVA-04177,true,false,false,false,false,false,false,false,true,false
+4102,BBVA,I,MXN,1111102513,Bco Ingr. BBVA-35363,true,false,false,false,false,false,false,false,true,false
+4102,BBVA,I,USD,1111202113,Bco Ingr. BBVA-42362,true,false,false,false,false,false,false,false,true,false
+4102,DAIMLER,E,MXN,1111102502,Bco Egr. Transferencia BBVA-03346,true,false,false,true,false,false,false,false,true,false
+4102,DAIMLER,E,USD,1111202122,Bco Egr. Transferencia BBVA-04177,true,false,false,true,false,false,false,false,true,false
+4102,DAIMLER,E,MXN,1111101102,Bco Egr. Transferencia BNMX-01691,true,false,false,false,false,false,false,false,false,true
+4102,DAIMLER,E,USD,1111201042,Bco Egr. Transferencia BNMX-11130,true,false,false,false,false,false,false,false,false,true
+4102,DAIMLER,E,MXN,1111102512,Bco Egr. Transferencia BBVA-35363,true,false,false,false,false,false,false,false,true,false
+4102,DAIMLER,E,USD,1111202112,Bco Egr. Transferencia BBVA-42362,true,false,false,false,false,false,false,false,true,false
+4102,DAIMLER,I,MXN,1111101103,Bco Ingr. BNMX-01691,true,false,true,false,false,false,false,true,false,true
+4102,DAIMLER,I,USD,1111201043,Bco Ingr. BNMX-11130,true,false,true,false,false,false,false,true,false,true
+4102,SCOTIA,E,MXN,1111108232,Bco Egr. Transferencia SCO-52966,true,false,false,false,false,false,false,false,false,false
+4102,SCOTIA,I,MXN,1111108233,Bco Ingr. SCO-52966,true,false,false,false,false,false,false,false,false,false
+4104,BBVA,E,MXN,1111102532,Bco Egr. Transferencia BBVA-03517,true,false,false,false,false,false,false,false,true,false
+4104,BBVA,E,USD,1111201052,Bco Egr. Transferencia BNMX-00030,true,false,false,false,false,false,false,false,false,true
+4104,BBVA,E,MXN,1111101112,Bco Egr. Transferencia BNMX-69337,true,false,false,false,false,false,false,false,false,true
+4104,BBVA,E,USD,1111202142,Bco Egr. Transferencia BBVA-04201,true,false,false,false,false,false,false,false,true,false
+4104,BBVA,E,USD,1111202152,Bco Egr. Transferencia BBVA-31610,true,false,false,true,false,false,false,false,true,false
+4104,BBVA,E,MXN,1111102542,Bco Egr. Transferencia BBVA-35357,true,false,false,true,false,false,false,false,true,false
+4104,BBVA,I,MXN,1111102533,Bco Ingr. BBVA-03517,true,false,false,false,false,false,false,false,true,false
+4104,BBVA,I,USD,1111201053,Bco Ingr. BNMX-00030,true,false,false,false,false,false,false,false,false,true
+4104,BBVA,I,MXN,1111101113,Bco Ingr. BNMX-69337,true,false,false,false,false,false,false,false,false,true
+4104,BBVA,I,USD,1111202143,Bco Ingr. BBVA-04201,true,false,false,false,false,false,false,false,true,false
+4104,BBVA,I,USD,1111202153,Bco Ingr. BBVA-31610,true,false,false,false,false,false,false,false,true,false
+4104,BBVA,I,MXN,1111102543,Bco Ingr. BBVA-35357,true,false,false,false,false,false,false,false,true,false
+4104,BMX,E,MXN,1111101112,Bco Egr. Transferencia BNMX-69337,true,false,false,false,false,false,false,false,false,true
+4104,BMX,I,MXN,1111101113,Bco Ingr. BNMX-69337,true,false,false,false,false,false,false,false,false,true
+4104,DAIMLER,E,MXN,1111102532,Bco Egr. Transferencia BBVA-03517,true,false,false,false,false,false,false,false,true,false
+4104,DAIMLER,E,USD,1111201052,Bco Egr. Transferencia BNMX-00030,true,false,false,false,false,false,false,false,false,true
+4104,DAIMLER,E,MXN,1111101112,Bco Egr. Transferencia BNMX-69337,true,false,false,false,false,false,false,false,false,true
+4104,DAIMLER,E,USD,1111202142,Bco Egr. Transferencia BBVA-04201,true,false,false,false,false,false,false,false,true,false
+4104,DAIMLER,E,USD,1111202152,Bco Egr. Transferencia BBVA-31610,true,false,false,false,false,false,false,false,true,false
+4104,DAIMLER,E,MXN,1111102542,Bco Egr. Transferencia BBVA-35357,true,false,false,false,false,false,false,false,true,false
+4104,DAIMLER,I,MXN,1111102533,Bco Ingr. BBVA-03517,true,false,true,false,false,false,false,true,true,false
+4104,DAIMLER,I,USD,1111201053,Bco Ingr. BNMX-00030,true,false,true,false,false,false,false,true,false,true
+4104,DAIMLER,I,MXN,1111101113,Bco Ingr. BNMX-69337,true,false,false,false,false,false,false,false,false,true
+4104,DAIMLER,I,USD,1111202143,Bco Ingr. BBVA-04201,true,false,false,false,false,false,false,false,true,false
+4104,DAIMLER,I,USD,1111202153,Bco Ingr. BBVA-31610,true,false,false,false,false,false,false,false,true,false
+4104,DAIMLER,I,MXN,1111102543,Bco Ingr. BBVA-35357,true,false,false,false,false,false,false,false,true,false
+4104,SCOTIA,E,MXN,1111102532,Bco Egr. Transferencia BBVA-03517,true,false,false,false,false,false,false,false,true,false
+4104,SCOTIA,E,USD,1111201052,Bco Egr. Transferencia BNMX-00030,true,false,false,false,false,false,false,false,false,true
+4104,SCOTIA,E,MXN,1111101112,Bco Egr. Transferencia BNMX-69337,true,false,false,false,false,false,false,false,false,true
+4104,SCOTIA,E,USD,1111202142,Bco Egr. Transferencia BBVA-04201,true,false,false,false,false,false,false,false,true,false
+4104,SCOTIA,E,USD,1111202152,Bco Egr. Transferencia BBVA-31610,true,false,false,false,false,false,false,false,true,false
+4104,SCOTIA,E,MXN,1111102542,Bco Egr. Transferencia BBVA-35357,true,false,false,false,false,false,false,false,true,false
+4104,SCOTIA,I,MXN,1111102533,Bco Ingr. BBVA-03517,true,false,false,false,false,false,false,false,true,false
+4104,SCOTIA,I,USD,1111201053,Bco Ingr. BNMX-00030,true,false,false,false,false,false,false,false,false,true
+4104,SCOTIA,I,MXN,1111101113,Bco Ingr. BNMX-69337,true,false,false,false,false,false,false,false,false,true
+4104,SCOTIA,I,USD,1111202143,Bco Ingr. BBVA-04201,true,false,false,false,false,false,false,false,true,false
+4104,SCOTIA,I,USD,1111202153,Bco Ingr. BBVA-31610,true,false,false,false,false,false,false,false,true,false
+4104,SCOTIA,I,MXN,1111102543,Bco Ingr. BBVA-35357,true,false,false,false,false,false,false,false,true,false
+4100,BBVA,E,MXN,1110510999,Banco Virtual,true,true,false,true,true,false,true,false,false,false
+4100,BBVA,I,USD,1111202163,Bco Ingr. BBVA-42359,true,false,false,false,false,false,false,false,true,false
+4100,DAIMLER,E,MXN,1111102552,Bco Egr. Transferencia BBVA-03239,true,false,false,true,false,false,false,false,true,false
+4100,DAIMLER,E,USD,1111201062,Bco Egr. Transferencia BNMX-11113,true,false,false,true,false,false,false,false,false,true
+4100,DAIMLER,I,MXN,1111102553,Bco Ingr. BBVA-03239,true,false,true,false,false,false,false,true,true,false
+4100,DAIMLER,I,USD,1111201063,Bco Ingr. BNMX-11113,true,false,true,false,false,false,false,true,false,true
+4100,DAIMLER,E,MXN,1111101122,Bco Egr. Transferencia BNMX-64317,true,false,false,false,false,false,false,false,false,true
+4100,DAIMLER,I,MXN,1111101123,Bco Ingr. BNMX-64317,true,false,false,false,false,false,false,false,false,true
+4100,SCOTIA,E,MXN,1111108122,Bco Egr. Transferencia SCO-05157,true,false,false,false,false,false,false,false,false,false
+4100,SCOTIA,E,USD,1111208032,Bco Egr. Transferencia SCO-27881,true,false,false,false,false,false,false,false,false,false
+4100,SCOTIA,I,MXN,1111108123,Bco Ingr. SCO-05157,true,false,false,false,false,false,false,false,false,false
+4100,SCOTIA,I,USD,1111208033,Bco Ingr. SCO-27881,true,false,false,false,false,false,false,false,false,false
+204,MAZDA,E,MXN,1111102572,Bco Egr. Transferencia BBVA-78534,true,false,false,true,false,false,false,false,true,false
+204,MAZDA,I,MXN,1111102573,Bco Ingr. BBVA-78534,true,false,false,false,false,false,false,false,true,false
+4105,BBVA,E,MXN,1111102602,Bco Egr. Transferencia BBVA-03445,true,false,false,false,false,false,false,false,true,false
+4105,BBVA,I,MXN,1111102603,Bco Ingr. BBVA-03445,true,false,false,false,false,false,false,false,true,false
+4105,BBVA,I,MXN,1111102613,Bco Ingr. BBVA-06145,true,false,false,false,false,false,false,false,true,false
+4105,BBVA,I,USD,1111202203,Bco Ingr. BBVA-31716,true,false,false,false,false,false,false,false,true,false
+4105,BMX,E,MXN,1111101152,Bco Egr. Transferencia BNMX-07580,true,false,false,false,false,false,false,false,false,true
+4105,BMX,E,USD,1111201082,Bco Egr. Transferencia BNMX-00066,true,false,false,false,false,false,false,false,false,true
+4105,BMX,I,MXN,1111101153,Bco Ingr. BNMX-07580,true,false,false,false,false,false,false,false,false,true
+4105,BMX,I,USD,1111201083,Bco Ingr. BNMX-00066,true,false,false,false,false,false,false,false,false,true
+4105,DAIMLER,E,MXN,1111102602,Bco Egr. Transferencia BBVA-03445,true,false,false,false,false,false,false,false,true,false
+4105,DAIMLER,E,USD,1111201082,Bco Egr. Transferencia BNMX-00066,true,false,false,false,false,false,false,false,false,true
+4105,DAIMLER,E,MXN,1111102612,Bco Egr. Transferencia BBVA-06145,true,false,false,false,false,false,false,false,true,false
+4105,DAIMLER,E,USD,1111202202,Bco Egr. Transferencia BBVA-31716,true,false,false,false,false,false,false,false,true,false
+4105,DAIMLER,I,USD,1111202203,Bco Ingr. BBVA-31716,true,false,true,false,false,false,false,true,true,false
+4105,SCOTIA,E,MXN,1111108172,Bco Egr. Transferencia SCO-51533,true,false,false,false,false,false,false,false,false,false
+4105,SCOTIA,I,MXN,1111102603,Bco Ingr. BBVA-03445,true,false,false,false,false,false,false,false,true,false
+4105,SCOTIA,I,MXN,1111108173,Bco Ingr. SCO-51533,true,false,false,false,false,false,false,false,false,false
+4101,BBVA,E,MXN,1111102672,Bco Egr. Transferencia BBVA-06097,true,false,false,true,false,false,false,false,true,false
+4101,BBVA,E,USD,1111202232,Bco Egr. Transferencia BBVA-31723,true,false,false,true,false,false,false,false,true,false
+4101,BBVA,I,MXN,1111102673,Bco Ingr. BBVA-06097,true,false,false,false,false,false,false,false,true,false
+4101,BBVA,I,USD,1111202233,Bco Ingr. BBVA-31723,true,false,false,false,false,false,false,false,true,false
+4101,DAIMLER,E,MXN,1111102652,Bco Egr. Transferencia BBVA-03284,true,false,false,false,false,false,false,false,true,false
+4101,DAIMLER,E,MXN,1111102672,Bco Egr. Transferencia BBVA-06097,true,false,false,false,false,false,false,false,true,false
+4101,DAIMLER,E,MXN,1111101172,Bco Egr. Transferencia BNMX-37512,true,false,false,true,false,false,false,false,false,true
+4101,DAIMLER,E,USD,1111201102,Bco Egr. Transferencia BNMX-24565,true,false,false,true,false,false,false,false,false,true
+4101,DAIMLER,E,USD,1111202232,Bco Egr. Transferencia BBVA-31723,true,false,false,false,false,false,false,false,true,false
+4101,DAIMLER,I,MXN,1111102653,Bco Ingr. BBVA-03284,true,false,false,false,false,false,false,false,true,false
+4101,DAIMLER,I,MXN,1111101173,Bco Ingr. BNMX-37512,true,false,true,false,false,false,false,true,false,true
+4101,DAIMLER,I,USD,1111201103,Bco Ingr. BNMX-24565,true,false,true,false,false,false,false,true,false,true
+4108,BBVA,E,MXN,1111102702,Bco Egr. Transferencia BBVA-68991,true,false,false,false,false,false,false,false,true,false
+4108,BBVA,E,MXN,1111102712,Bco Egr. Transferencia BBVA-97296,true,false,false,true,false,false,false,false,true,false
+4108,BBVA,I,MXN,1111102703,Bco Ingr. BBVA-68991,true,false,false,false,false,false,false,false,true,false
+4108,BBVA,I,MXN,1111102713,Bco Ingr. BBVA-97296,true,false,false,false,false,false,false,false,true,false
+4108,BBVA,I,USD,1111202243,Bco Ingr. BBVA-31752,true,false,false,false,false,false,false,false,true,false
+4108,BMX,E,MXN,1111101202,Bco Egr. Transferencia BNMX-41017,true,false,false,false,false,false,false,false,false,true
+4108,BMX,E,MXN,1111102712,Bco Egr. Transferencia BBVA-97296,true,false,false,false,false,false,false,false,true,false
+4108,BMX,I,MXN,1111101203,Bco Ingr. BNMX-41017,true,false,false,false,false,false,false,false,false,true
+4108,BMX,I,MXN,1111102713,Bco Ingr. BBVA-97296,true,false,false,false,false,false,false,false,true,false
+4108,DAIMLER,E,MXN,1111102702,Bco Egr. Transferencia BBVA-68991,true,false,false,true,false,false,false,false,true,false
+4108,DAIMLER,E,USD,1111201112,Bco Egr. Transferencia BNMX-00039,true,false,false,true,false,false,false,false,false,true
+4108,DAIMLER,E,MXN,1111102712,Bco Egr. Transferencia BBVA-97296,true,false,false,false,false,false,false,false,true,false
+4108,DAIMLER,I,MXN,1111102703,Bco Ingr. BBVA-68991,true,false,false,false,false,false,false,false,true,false
+4108,DAIMLER,I,MXN,1111102713,Bco Ingr. BBVA-97296,true,false,true,false,false,false,false,true,true,false
+4103,DAIMLER,E,MXN,1111102522,Bco Egr. Transferencia BBVA-03402,true,false,false,false,false,false,false,false,true,false
+4103,DAIMLER,I,MXN,1111102523,Bco Ingr. BBVA-03402,true,false,true,false,false,false,false,true,true,false
+4103,DAIMLER,E,USD,1111202132,Bco Egr. Transferencia BBVA-04183,true,false,false,false,false,false,false,false,true,false
+4103,DAIMLER,I,USD,1111202133,Bco Ingr. BBVA-04183,true,false,true,false,false,false,false,true,true,false
+4100,DAIMLER,T,USD,9990000099,Traslado Logístico,true,false,false,false,true,true,false,false,false,false
+4101,DAIMLER,T,USD,9990000099,Traslado Logístico,true,false,false,false,true,true,false,false,false,false
+4102,DAIMLER,T,USD,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4103,DAIMLER,T,USD,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4104,DAIMLER,T,USD,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4105,DAIMLER,T,USD,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4106,DAIMLER,T,USD,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4107,DAIMLER,T,USD,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4108,DAIMLER,T,USD,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4100,DAIMLER,T,MXN,9990000099,Traslado Logístico,true,false,false,false,true,true,false,false,false,false
+4101,DAIMLER,T,MXN,9990000099,Traslado Logístico,true,false,false,false,true,true,false,false,false,false
+4102,DAIMLER,T,MXN,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4103,DAIMLER,T,MXN,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4104,DAIMLER,T,MXN,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4105,DAIMLER,T,MXN,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4106,DAIMLER,T,MXN,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4107,DAIMLER,T,MXN,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4108,DAIMLER,T,MXN,9990000099,Traslado Logístico,false,false,false,false,true,true,false,false,false,false
+4100,BBVA,E,USD,1110510999,Banco Virtual,true,true,false,true,true,false,true,false,false,false
+4102,BBVA,E,USD,1111202112,Bco Egr. Transferencia BBVA-42362,true,false,false,true,false,false,false,false,true,false
+4105,BBVA,E,MXN,1111102612,Bco Egr. Transferencia BBVA-06145,true,false,false,true,false,false,false,false,true,false
+4105,BBVA,E,USD,1111202202,Bco Egr. Transferencia BBVA-31716,true,false,false,true,false,false,false,false,true,false
+4107,BBVA,E,USD,1111202102,Bco Egr. Transferencia BBVA-31691,true,false,false,true,false,false,false,false,true,false
+4108,BBVA,E,USD,1111202242,Bco Egr. Transferencia BBVA-31752,true,false,false,true,false,false,false,false,true,false
+100,R00,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,false,false,false
+204,MAZDA,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,false,false,false
+4100,DAIMLER,X,USD,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4100,DAIMLER,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4100,BBVA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4100,BBVA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4100,SCOTIA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4100,SCOTIA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4101,DAIMLER,X,USD,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4101,DAIMLER,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4101,BBVA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4101,BBVA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4102,DAIMLER,X,USD,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4102,DAIMLER,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4102,BBVA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4102,BBVA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4102,SCOTIA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4102,SCOTIA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4103,DAIMLER,X,USD,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4103,DAIMLER,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4104,DAIMLER,X,USD,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4104,DAIMLER,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4104,BBVA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4104,BBVA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4104,SCOTIA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4104,SCOTIA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4104,BMX,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4105,DAIMLER,X,USD,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4105,DAIMLER,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4105,BBVA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4105,BBVA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4105,BMX,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4105,BMX,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4105,SCOTIA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4105,SCOTIA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4106,DAIMLER,X,USD,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4106,DAIMLER,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4107,DAIMLER,X,USD,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4107,DAIMLER,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4107,BBVA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4107,BBVA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4107,BMX,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4107,SCOTIA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4108,DAIMLER,X,USD,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4108,DAIMLER,X,MXN,1110510999,Banco Virtual,true,true,true,false,true,false,true,true,false,false
+4108,BBVA,X,USD,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4108,BBVA,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false
+4108,BMX,X,MXN,1110510999,Banco Virtual,true,true,false,false,true,true,true,false,false,false

@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>sDialogSociedadTitulo}" class="sapUiPopupWithPadding" items="{HelpValues>/Sociedad}" showClearButton="true"
+		search="_sociedadHandleValueHelpSearch" confirm="_sociedadHandleValueHelpClose" cancel="_sociedadHandleValueHelpClose" multiSelect="true"
+		rememberSelections="true" id="sdSociedad">
+		<StandardListItem icon="sap-icon://factory" iconDensityAware="false" iconInset="false" title="{HelpValues>name}"
+			description="{HelpValues>key}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,125 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogPropPag" xmlns="sap.m"
+	xmlns:uitab="sap.ui.table">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="{i18n>propPaggTitulo}" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<uitab:Table id="tablaPropPag" rows="{PropPagoCollection>/}" selectionMode="None" width="100%">
+				<uitab:columns>
+					<!--Columna de "Sociedad" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="82" autoResizable="true"
+						tooltip="{i18n>colSociedad}">
+						<Text text="{i18n>colSociedad}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{PropPagoCollection>companyCode}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Centro" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="66" autoResizable="true"
+						tooltip="{i18n>colCentro}">
+						<Text text="{i18n>colCentro}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{PropPagoCollection>center}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Vin\Chasis\No.Serie" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="serial" filterProperty="serial" minWidth="167" autoResizable="true"
+						tooltip="{i18n>colChasis}">
+						<Text text="{i18n>colChasis}"/>
+						<uitab:template>
+							<Text text="{PropPagoCollection>serial}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Tipo de Financiamiento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="fundSubType_ID" filterProperty="fundSubType_ID" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colTipofina}">
+						<Text text="{i18n>colTipofina}"/>
+						<uitab:template>
+							<Text text="{PropPagoCollection>fundSubType_ID}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Posicion" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="segment" filterProperty="segment" minWidth="87" autoResizable="true"
+						tooltip="{i18n>colPosTool}">
+						<Text text="{i18n>colPos}"/>
+						<uitab:template>
+							<Text text="{PropPagoCollection>secuence}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Costo" -->
+					<uitab:Column sortProperty="costAmt" filterProperty="costAmt" minWidth="100" autoResizable="true" tooltip="{i18n>colImpUniTool}"
+						hAlign="Right">
+						<Text text="{i18n>colImpUni}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'PropPagoCollection>costAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Importe Financiado" -->
+					<uitab:Column sortProperty="financedAmt" filterProperty="financedAmt" minWidth="100" autoResizable="true" tooltip="{i18n>colImpFinTool}"
+						hAlign="Right">
+						<Text text="{i18n>colImpFin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'PropPagoCollection>financedAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Saldo Financiamiento" -->
+					<uitab:Column sortProperty="balanceAmt" filterProperty="balanceAmt" minWidth="100" autoResizable="true" tooltip="{i18n>colSalFinTool}"
+						hAlign="Right">
+						<Text text="{i18n>colSalFin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'PropPagoCollection>balanceAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Importe Pagado" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="payedAmt" filterProperty="payedAmt" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colImpPagTool}">
+						<Text text="{i18n>colImpPag}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input id="iImpPagPro" value="{path:'PropPagoCollection>payedAmt'}" required="true" change="onChangeImporte" liveChange="oValidCaracter"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Fecha Propuesta de Pago" -->
+					<uitab:Column width='auto' sortProperty="datePay" filterProperty="datePay" minWidth="200" autoResizable="true" tooltip="{i18n>colFecProPAG}">
+						<Text text="{i18n>colFecProPAG}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<DatePicker id="dpFechaProPag"
+								value="{path:'PropPagoCollection>datePay', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"
+								required="true" change="handleFechaInicio"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+				<uitab:footer>
+					<Label
+						text="{i18n>pago}: { path: 'oImporteSumatoria>/sumatoriaPropuestaPago', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }"/>
+				</uitab:footer>
+			</uitab:Table>
+			<Table id="FinancedItemsPaymentsSetProPag"
+				items="{ path: 'modeloOperation>/FinancedItemsPaymentsSet', filters : [ { path : 'secuence', operator : 'EQ', value1 : 0} ] }"
+				visible="false">
+				<columns>
+					<Column>
+						<Text text="ID"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier text="{modeloOperation>ID}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>BtnCopyReplicar}" icon="sap-icon://copy" type="Neutral" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="oCopyPropPag"/>
+			<Button text="{i18n>propPagSave}" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="onButtonPress"/>
+			<Button text="{i18n>cerrarDialogo}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="onButtonPressClose"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

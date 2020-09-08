@@ -1,0 +1,48 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic" xmlns:f="sap.ui.layout.form" controllerName="vn.pp.ux_vn_pp_config.controller.FinSrvs_001_new"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<semantic:SemanticPage id="FinSrvs_001_new" headerPinnable="false" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+		headerExpanded="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="FinSrvs_001_new"/>
+		</semantic:titleHeading>
+		<!-- Header Content -->
+		<semantic:headerContent></semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<Panel class="sapUiContentPadding">
+				<f:SimpleForm id="formFinSrvs_001_new" editable="true" layout="ResponsiveGridLayout" title="{i18n>newItem}" labelSpanXL="3" labelSpanL="3"
+					labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+					columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						<Label text="{i18n>finCode}" required="true"/>
+						<Input value="{HelpValues>/FinSrvs_001_new/finCode}"></Input>
+						<Label text="{i18n>finType}" required="true"/>
+						<Select id="iFinType" selectedKey="{HelpValues>/FinSrvs_001_new/finType_finType}"
+							items="{ path: 'modeloConfig>/FinTypes_001', templateSharable: 'false' }">
+							<core:Item key="{modeloConfig>finType}" text="{modeloConfig>finType}: {modeloConfig>description}"/>
+						</Select>
+						<Label text="{i18n>description}" required="true"/>
+						<Input value="{HelpValues>/FinSrvs_001_new/description}"></Input>
+						<Label text="{i18n>sapLifnr}" required="true"/>
+						<Input value="{HelpValues>/FinSrvs_001_new/sapLifnr}" maxLength="10"></Input>
+						<Label text="{i18n>active}" required="true"/>
+						<CheckBox selected="{HelpValues>/FinSrvs_001_new/active}" id="cbActive"/>
+					</f:content>
+				</f:SimpleForm>
+				<List id="listFinSrvs_001_new" visible="false"
+					items="{ path: 'modeloConfig>/FinSrvs_001', parameters : {$$updateGroupId : 'FinSrvs_001_new'}, filters : [ { path : 'finCode', operator : 'EQ', value1 : 'XXXX'} ]}">
+					<StandardListItem title="{modeloConfig>finCode}"/>
+				</List>
+			</Panel>
+		</semantic:content>
+		<!-- Semantic Footer Buttons -->
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveAction" text="{i18n>txtGuardar}" press="onSave"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button id="cancelAction" text="{i18n>txtDescartar}" press="onDiscard"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

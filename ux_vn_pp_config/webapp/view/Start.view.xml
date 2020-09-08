@@ -1,0 +1,74 @@
+<mvc:View controllerName="vn.pp.ux_vn_pp_config.controller.Start" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page id="page" title="Configuración Plan Piso">
+		<content>
+			<Wizard id="ConfigWizard1" class="sapUiResponsivePadding--header sapUiResponsivePadding--content" complete="wizardCompletedHandler"
+				enableBranching="true">
+				<WizardStep id="ConfigType" subsequentSteps="ConfigXMD, ConfigXData, ConfigWerks" title="{i18n>titConfType}"
+					validated="{HelpValues>/SelectedConfig}">
+					<MessageStrip class="sapUiSmallMarginBottom" text="{i18n>msgConfType}" showIcon="true"/>
+					<!--TABLA TIPOS DE CONFIGURACIÓN-->
+					<List id="LConfigTypes" items="{HelpValues>/ConfigTypes}">
+						<ObjectListItem type="Active" press="onPressConfigType" title="{HelpValues>title}" icon="{HelpValues>icon}" iconDensityAware="false">
+							<ObjectAttribute text="{HelpValues>descp}"/>
+							<markers>
+								<ObjectMarker type="Favorite"
+									visible="{ parts: ['HelpValues>action', 'HelpValues>/SelectedConfigType/action'], formatter: '.formatter.EnabledConfigType' }"/>
+							</markers>
+						</ObjectListItem>
+					</List>
+				</WizardStep>
+				<WizardStep id="ConfigWerks" subsequentSteps="ConfigXCFG, ConfigXRel" title="{i18n>titSocCen}"
+					validated="{ parts: ['HelpValues>/SelectedWerks'], formatter: '.formatter.ValidateConfigWerks' }">
+					<MessageStrip class="sapUiSmallMarginBottom" text="{i18n>txtSocCenInfo}" showIcon="true"/>
+					<form:SimpleForm editable="true" title="{i18n>sFormTitle}">
+						<Label text="Sociedad" required="true"/>
+						<MultiInput id="miSociedad" valueHelpOnly="true" valueHelpRequest="onHelpSociedad"></MultiInput>
+						<Label text="Centros" required="true"/>
+						<MultiInput id="miCentro" valueHelpOnly="true" valueHelpRequest="onHelpCentro"></MultiInput>
+					</form:SimpleForm>
+				</WizardStep>
+				<WizardStep id="ConfigXData" activate="pricingActivate" complete="pricingComplete" validated="false" title="{i18n>titConfigXData}">
+					<MessageStrip class="sapUiSmallMarginBottom" text="{i18n>msgConfigXData}" showIcon="true"/>
+					<!--TABLAS ALIMENTAR-->
+					<List id="LDataType"
+						items="{path:'HelpValues>/TableList', filters : [ { path : 'type', operator : 'EQ', value1 : 'ConfigXData'} ], templateShareable:false}">
+						<ObjectListItem type="Navigation" press="onPressDataType" title="{HelpValues>title}" icon="{HelpValues>icon}" iconDensityAware="false">
+							<ObjectAttribute text="{HelpValues>descp}"/>
+						</ObjectListItem>
+					</List>
+				</WizardStep>
+				<WizardStep id="ConfigXMD" activate="pricingActivate" complete="pricingComplete" validated="false" title="{i18n>titConfigXMD}">
+					<MessageStrip class="sapUiSmallMarginBottom" text="{i18n>msgConfigXMD}" showIcon=" true"/>
+					<!--TABLAS ALIMENTAR-->
+					<List id="LXMDType"
+						items="{path:'HelpValues>/TableList', filters : [ { path : 'type', operator : 'EQ', value1 : 'ConfigXMD'} ], templateShareable:false}">
+						<ObjectListItem type="Navigation" press="onPressDataType" title="{HelpValues>title}" icon="{HelpValues>icon}" iconDensityAware="false">
+							<ObjectAttribute text="{HelpValues>descp}"/>
+						</ObjectListItem>
+					</List>
+				</WizardStep>
+				<WizardStep id="ConfigXCFG" activate="pricingActivate" complete="pricingComplete" validated="false" title="{i18n>titConfigXCFG}">
+					<MessageStrip class="sapUiSmallMarginBottom" text="{i18n>msgConfigXCFG}" showIcon="true"/>
+					<!--TABLAS ALIMENTAR-->
+					<List id="LXCFGType"
+						items="{path:'HelpValues>/TableList', filters : [ { path : 'type', operator : 'EQ', value1 : 'ConfigXCFG'} ], templateShareable:false}">
+						<ObjectListItem type="Navigation" press="onPressDataType" title="{HelpValues>title}" icon="{HelpValues>icon}" iconDensityAware="false">
+							<ObjectAttribute text="{HelpValues>descp}"/>
+						</ObjectListItem>
+					</List>
+				</WizardStep>
+				<WizardStep id="ConfigXRel" activate="pricingActivate" complete="pricingComplete" validated="false" title="{i18n>titConfigXRel}">
+					<MessageStrip class="sapUiSmallMarginBottom" text="{i18n>msgConfigXRel}" showIcon="true"/>
+					<!--TABLAS ALIMENTAR-->
+					<List id="LXRelType"
+						items="{path:'HelpValues>/TableList', filters : [ { path : 'type', operator : 'EQ', value1 : 'ConfigXRel'} ], templateShareable:false}">
+						<ObjectListItem type="Navigation" press="onPressDataType" title="{HelpValues>title}" icon="{HelpValues>icon}" iconDensityAware="false">
+							<ObjectAttribute text="{HelpValues>descp}"/>
+						</ObjectListItem>
+					</List>
+				</WizardStep>
+			</Wizard>
+		</content>
+	</Page>
+</mvc:View>

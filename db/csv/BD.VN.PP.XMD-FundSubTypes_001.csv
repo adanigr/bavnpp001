@@ -1,0 +1,7 @@
+ID,DESCRIPTION,FUNDTYPE_ID,ACTIVE
+UN_VN,Vehículo Nuevo,UN,1
+UN_VU,Vehículo Usado,UN,1
+UN_VC,Vehículo Cesión,UN,1
+UN_VD,Vehículo Demo,UN,1
+ACCS_1,Accesorio,ACCS,1
+ACCS_FE,Fondo Estrella,ACCS,1

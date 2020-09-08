@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>colCtaEgr}" class="sapUiPopupWithPadding"
+		items="{ path: 'modeloCatalog>/TransferAccs_E', parameters: {$select: 'center,finCode,sapHkont,currency,description,flagTR_L_BBVA,flagTR_L_BMX'} }"
+		showClearButton="false" search="_onSearchTrasCteE" confirm="_onActionTrasCteE" cancel="_onActionTrasCteE" multiSelect="false"
+		rememberSelections="false" id="sdTrasCtaE">
+		<StandardListItem iconDensityAware="false" iconInset="false" title="{modeloCatalog>sapHkont}" description="{modeloCatalog>description}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

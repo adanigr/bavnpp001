@@ -1,0 +1,111 @@
+ID: bavnpp001
+_schema-version: '2.1'
+description: Plan Piso
+parameters:
+  deploy_mode: html5-repo
+version: 0.0.1
+modules:
+  - name: bavnpp001_appRouter
+    type: approuter.nodejs
+    path: bavnpp001_appRouter
+    parameters:
+      disk-quota: 256M
+      memory: 128M
+    requires:
+      - name: bavnpp001_html5_repo_runtime
+      - name: bavnpp001-uaa
+      - name: dest_bavnpp001
+      - name: conn_bavnpp001
+      - name: srv_api
+        group: destinations
+        properties:
+          timeout: 100000
+          forwardAuthToken: true
+          name: srv_api
+          url: '~{url}'
+  - name: bavnpp001_ui_deployer
+    type: com.sap.html5.application-content
+    path: bavnpp001_ui_deployer
+    requires:
+      - name: bavnpp001_html5_repo_host
+    build-parameters:
+      requires:
+        - name: ux_vn_pp_monitor
+          artifacts:
+            - './*'
+          target-path: resources/ux_vn_pp_monitor
+        - name: ux_vn_pp_config
+          artifacts:
+            - './*'
+          target-path: resources/ux_vn_pp_config
+  - name: bavnpp001-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 512M
+      disk-quota: 256M
+    requires:
+      - name: bavnpp001-db-hdi-container
+  - name: bavnpp001-srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 512M
+      disk-quota: 512M
+    provides:
+      - name: srv_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: bavnpp001-db-hdi-container
+      - name: bavnpp001-uaa
+      - name: dest_bavnpp001
+      - name: conn_bavnpp001
+  - name: ux_vn_pp_monitor
+    type: html5
+    path: ux_vn_pp_monitor
+    build-parameters:
+      builder: grunt
+      supported-platforms: []
+      build-result: dist
+  - name: ux_vn_pp_config
+    type: html5
+    path: ux_vn_pp_config
+    build-parameters:
+      builder: grunt
+      supported-platforms: []
+      build-result: dist
+resources:
+  - name: bavnpp001_html5_repo_runtime
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: bavnpp001_html5_repo_host
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: bavnpp001-db-hdi-container
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: '${service-name}'
+  - name: bavnpp001-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: application
+      service: xsuaa
+      config:
+        xsappname: 'bavnpp001-${space}'
+        tenant-mode: dedicated
+      path: ./xs-security.json
+  - name: dest_bavnpp001
+    parameters:
+      service-plan: lite
+      service: destination
+    type: org.cloudfoundry.managed-service
+  - name: conn_bavnpp001
+    parameters:
+      service-plan: lite
+      service: connectivity
+    type: org.cloudfoundry.managed-service

@@ -1,0 +1,79 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic" xmlns:f="sap.ui.layout.form" controllerName="vn.pp.ux_vn_pp_config.controller.TransferAccs_001_new"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<semantic:SemanticPage id="TransferAccs_001_new" headerPinnable="false" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+		headerExpanded="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="TransferAccs_001_new"/>
+		</semantic:titleHeading>
+		<!-- Header Content -->
+		<semantic:headerContent></semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<Panel class="sapUiContentPadding">
+				<f:SimpleForm id="formTransferAccs_001_new" editable="true" layout="ResponsiveGridLayout" title="{i18n>newItem}" labelSpanXL="3"
+					labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+					columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						<Label text="{i18n>sapVKORG}"/>
+						<Select id="iWerks_TransferAccs_001_new" selectedKey="{HelpValues>/TransferAccs_001_new/center}"
+							items="{ path: 'HelpValues>/SelectedWerks', templateSharable: 'false' }">
+							<core:Item key="{HelpValues>Werks}" text="{HelpValues>Werks}: {HelpValues>Name1}"/>
+						</Select>
+						<Label text="{i18n>finCode}" required="true"/>
+						<Select id="iFinCode_TransferAccs_001_new" selectedKey="{HelpValues>/TransferAccs_001_new/finServ_finCode}"
+							items="{ path: 'modeloConfig>/FinSrvs_001', templateSharable: 'false' }">
+							<core:Item key="{modeloConfig>finCode}" text="{modeloConfig>finCode}: {modeloConfig>description}"/>
+						</Select>
+						<Label text="{i18n>transType}" required="true"/>
+						<Select id="iTransType_TransferAccs_001_new" selectedKey="{HelpValues>/TransferAccs_001_new/transType}"
+							items="{ path: 'HelpValues>/TransTypeSet', templateSharable: 'false' }">
+							<core:Item key="{HelpValues>transType}" text="{HelpValues>transType}: {HelpValues>description}"/>
+						</Select>
+						<Label text="{i18n>currency}" required="true"/>
+						<Select id="iCurrency_TransferAccs_001_new" selectedKey="{HelpValues>/TransferAccs_001_new/currency}"
+							items="{ path: 'HelpValues>/CurrencySet', templateSharable: 'false' }">
+							<core:Item key="{HelpValues>currency}" text="{HelpValues>currency}: {HelpValues>description}"/>
+						</Select>
+						<Label text="{i18n>sapHKONT}" required="true"/>
+						<Input value="{HelpValues>/TransferAccs_001_new/sapHkont}" maxLength="10"/>
+						<Label text="{i18n>description}" required="true"/>
+						<Input value="{HelpValues>/TransferAccs_001_new/description}" maxLength="200"/>
+						<Label text="{i18n>flag1T}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/flag1T}"/>
+						<Label text="{i18n>flagKA}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/flagKA}"/>
+						<Label text="{i18n>flagIntKZ}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/flagIntKZ}"/>
+						<Label text="{i18n>flagTL_KA}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/flagTL_KA}"/>
+						<Label text="{i18n>flagTL_1T}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/flagTL_1T}"/>
+						<Label text="{i18n>flagTL_KA_FE}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/flagTL_KA_FE}"/>
+						<Label text="{i18n>flagTL_1T_FE}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/flagTL_1T_FE}"/>
+						<Label text="{i18n>flagTR_L_BBVA}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/flagTR_L_BBVA}"/>
+						<Label text="{i18n>flagTR_L_BMX}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/flagTR_L_BMX}"/>
+						<Label text="{i18n>active}"/>
+						<CheckBox selected="{HelpValues>/TransferAccs_001_new/active}"/>
+					</f:content>
+				</f:SimpleForm>
+				<List id="listTransferAccs_001_new" visible="false"
+					items="{ path: 'modeloConfig>/TransferAccs_001', parameters : {$$updateGroupId : 'TransferAccs_001_new'}, filters : [ { path : 'center', operator : 'EQ', value1 : 'XXXX'} ]}">
+					<StandardListItem title="{modeloConfig>center}"/>
+				</List>
+			</Panel>
+		</semantic:content>
+		<!-- Semantic Footer Buttons -->
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveAction" text="{i18n>txtGuardar}" press="onSave"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button id="cancelAction" text="{i18n>txtDescartar}" press="onDiscard"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogViewLayouts" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="{i18n>ViwLayTit}" type="Standard"
+		verticalScrolling="true" contentWidth="100%" contentHeight="100%">
+		<content>
+			<uitab:Table id="tableViewLayout" rows="{ path: 'LayDwnCollection>/'}" selectionMode="None" width="100%" rowActionCount="1">
+				<uitab:rowActionTemplate visible="true">
+					<uitab:RowAction>
+						<uitab:items>
+							<uitab:RowActionItem press="onPressDwn" visible="{= (${LayDwnCollection>flagDel} === true)? false : true }" type="Custom"
+								icon="sap-icon://download"/>
+						</uitab:items>
+					</uitab:RowAction>
+				</uitab:rowActionTemplate>
+				<uitab:columns>
+					<uitab:Column sortProperty="logDate" filterProperty="logDate" minWidth="120" autoResizable="true">
+						<Text text="{i18n>collogDate}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{LayDwnCollection>logTime}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="title" filterProperty="title" minWidth="100" autoResizable="true">
+						<Text text="{i18n>colLTitle}"/>
+						<uitab:template>
+							<Text text="{LayDwnCollection>title}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column sortProperty="fileName" filterProperty="fileName" minWidth="300" autoResizable="true">
+						<Text text="{i18n>colFileName}" wrapping="true" maxLines="2"/>
+						<uitab:template>
+							<Text text="{LayDwnCollection>fileName}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<uitab:Column width='auto' sortProperty="downCount" filterProperty="downCount" minWidth="100" autoResizable="true">
+						<Text text="{i18n>colDwnCount}"/>
+						<uitab:template>
+							<Text text="{LayDwnCollection>downCount}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+			</uitab:Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>closeWindow}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress1"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

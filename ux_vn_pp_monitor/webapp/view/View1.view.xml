@@ -1,0 +1,379 @@
+<mvc:View controllerName="vn.pp.ux_vn_pp_monitor.controller.View1" height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar" xmlns:vm="sap.ui.comp.variants"
+	xmlns:uitab="sap.ui.table" xmlns:unified="sap.ui.unified">
+	<Shell id="shell">
+		<App id="app">
+			<f:DynamicPage id="dpMonitor" headerExpanded="true">
+				<!-- DynamicPage Title -->
+				<f:title>
+					<f:DynamicPageTitle>
+						<f:heading>
+							<Title text="Monitor Plan Piso"/>
+						</f:heading>
+						<f:actions>
+							<ToolbarSpacer/>
+							<!--<Button text="Global Action" type="Transparent"/>-->
+							<!--<Button text="Toggle Footer" type="Transparent" press="onToggleFooter"/>-->
+						</f:actions>
+					</f:DynamicPageTitle>
+				</f:title>
+				<!-- DynamicPage Header -->
+				<f:header>
+					<f:DynamicPageHeader pinnable="false" id="dynamicPageHeader">
+						<f:content>
+							<fb:FilterBar persistencyKey="vnppTabla1" id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="true"
+								filterBarExpanded="false">
+								<fb:filterItems>
+									<fb:FilterItem name="Sociedad" label="{i18n>filtroSociedad}" mandatory="true">
+										<fb:control>
+											<MultiInput id="miSociedad" valueHelpOnly="true" valueHelpRequest="onHelpSociedad"></MultiInput>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="Centro" label="{i18n>filtroCentro}" mandatory="true">
+										<fb:control>
+											<MultiInput id="miCentro" valueHelpOnly="true" valueHelpRequest="onHelpCentro"></MultiInput>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="Segmento" label="{i18n>colSegment}">
+										<fb:control>
+											<MultiComboBox id="mcbSegmento" items="{ path: 'HelpValues>/Segmentos',templateShareable:true }">
+												<core:Item key="{HelpValues>key}" text="{HelpValues>key}: {HelpValues>name}"/>
+											</MultiComboBox>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="Marca" label="{i18n>filtroMarca}">
+										<fb:control>
+											<MultiComboBox id="mcbMarca" items="{ path: 'modeloCatalog>/BrandSet',templateShareable:true }">
+												<core:Item key="{modeloCatalog>brandCode}" text="{modeloCatalog>brandCode}: {modeloCatalog>brandText}"/>
+											</MultiComboBox>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="FinSrv" label="{i18n>colFinan}">
+										<fb:control>
+											<MultiComboBox id="mcbFinSet" items="{ path: 'modeloCatalog>/FinSet',templateShareable:true }">
+												<core:Item key="{modeloCatalog>finCode}" text="{modeloCatalog>finCode}: {modeloCatalog>description}"/>
+											</MultiComboBox>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="FundSubType" label="{i18n>colTipo}">
+										<fb:control>
+											<MultiComboBox id="mcbFundSubType" items="{ path: 'modeloCatalog>/SubFunTypeSet',templateShareable:true }">
+												<core:Item key="{modeloCatalog>fundSubType_ID}" text="{modeloCatalog>description}"/>
+											</MultiComboBox>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="EstatusUni" label="{i18n>filtroEstatus}">
+										<fb:control>
+											<MultiComboBox id="mcbEstatusUni" items="{ path: 'modeloCatalog>/StatusSet',templateShareable:true }">
+												<core:Item key="{modeloCatalog>status}" text="{modeloCatalog>status}: {modeloCatalog>description}"/>
+											</MultiComboBox>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="FecFinIni" label="{i18n>filtroFechFinIni}">
+										<fb:control>
+											<DateRangeSelection id="drsFecFinIni"/>
+										</fb:control>
+									</fb:FilterItem>
+									<!--Fecha fin financiamiento 
+										<fb:FilterItem name="FecFinFin" label="{i18n>filtroFechFinFin}">
+											<fb:control>
+												<DateRangeSelection id="drsFecFinFin"/>
+											</fb:control>
+										</fb:FilterItem>
+									-->
+									<fb:FilterItem name="FecSalUni" label="{i18n>filtroFechSalUni}">
+										<fb:control>
+											<DateRangeSelection id="drsFecSalUni"/>
+										</fb:control>
+									</fb:FilterItem>
+									<!--Fecha Propuesta de Pago  
+										<fb:FilterItem name="FecProPag" label="{i18n>filtroFechProPag}">
+											<fb:control>
+												<DateRangeSelection id="drsFecProPag"/>
+											</fb:control>
+										</fb:FilterItem>
+									-->
+									<!--Fecha Pago  
+										<fb:FilterItem name="FecPag" label="{i18n>filtroFechPag}">
+											<fb:control>
+												<DateRangeSelection id="drsFecPag"/>
+											</fb:control>
+										</fb:FilterItem>
+									-->
+									<fb:FilterItem name="Chasis" label="{i18n>filtroChasis}">
+										<fb:control>
+											<MultiInput id="miChasis" valueHelpOnly="true" valueHelpRequest="onHelpChasis"/>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="Moneda" label="{i18n>filtroMoneda}">
+										<fb:control>
+											<MultiComboBox id="mcbMoneda" items="{ path: 'HelpValues>/Moneda',templateShareable:true }">
+												<core:Item key="{HelpValues>key}" text="{HelpValues>key}: {HelpValues>name}"/>
+											</MultiComboBox>
+										</fb:control>
+									</fb:FilterItem>
+								</fb:filterItems>
+							</fb:FilterBar>
+						</f:content>
+					</f:DynamicPageHeader>
+				</f:header>
+				<f:content>
+					<uitab:Table id="tableMainPP" visibleRowCountMode="Auto" enableBusyIndicator="true"
+						rows="{path:'modeloItems>/FinancedItemsSet', sorter: [{ path: 'companyCode', descending: false }, { path: 'center', descending: false }, { path: 'serial', descending: false }, { path: 'plateNum', descending: false }, { path: 'secuence', descending: false }], filters : [ { path : 'companyCode', operator : 'EQ', value1 : 'XXXXX'} ], templateShareable:true}"
+						selectionMode="MultiToggle" width="100%" rowActionCount="1">
+						<uitab:extension>
+							<OverflowToolbar>
+								<Title id="title" text="{i18n>tablaHeading}"/>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://add-product" tooltip="{i18n>tablaBtnActFij}" id="btnActFij" press="onActivoFijo"/>
+								<Button icon="sap-icon://shipping-status" tooltip="{i18n>tablaBtnSal}" id="btnSal" press="onSalidaUnidad"/>
+								<Button icon="sap-icon://toaster-up" tooltip="{i18n>tablaBtnTrasp}" id="btnTrasp" press="onTrasUnidad"/>
+								<Button icon="sap-icon://reset" tooltip="{i18n>tablaBtnTraspAnu}" id="btnTraspAnu" press="onAnularTrasp" type="Reject"/>
+								<ToolbarSeparator/>
+								<Button icon="sap-icon://customer-financial-fact-sheet" tooltip="{i18n>tablaBtnPropPag}" id="btnPropPag" press="onPropPag"/>
+								<Button icon="sap-icon://payment-approval" tooltip="{i18n>tablaBtnConfPag}" id="btnConfPag" press="onConfPag" type="Accept"/>
+								<Button icon="sap-icon://expense-report" tooltip="{i18n>tablaBtnComp}" id="btnComp" press="oPagoCompe" type="Accept"/>
+								<Button icon="sap-icon://unpaid-leave" tooltip="{i18n>tablaBtnAnu}" id="btnAnu" press="onAnularPago" type="Reject"/>
+								<ToolbarSeparator/>
+								<Button icon="sap-icon://collections-insight" tooltip="{i18n>tablaBtnTipoCam}" id="btnTipoCam" press="onchangeMoney"/>
+								<Button icon="sap-icon://time-overtime" tooltip="{i18n>tablaBtnSegFin}" id="btnSegFin" press="segFinanciera"/>
+								<ToolbarSeparator/>
+								<Button icon="sap-icon://simulate" tooltip="{i18n>tablaBtnIntBBVA}" id="btnIntBBVA" press="genInteBbva"/>
+								<Button icon="sap-icon://date-time" tooltip="{i18n>tablaBtnRecalBBVA}" id="btnRecalBBVA" press="onRecalendarizaUni"/>
+								<!--
+								<ToolbarSeparator/>
+								<SearchField placeholder="{i18n>tablaSFBusq}" value="{ui>/globalFilter}" search="onSearch" width="7rem"/>
+								<ToolbarSeparator/>
+								-->
+								<Button icon="sap-icon://excel-attachment" tooltip="{i18n>btnExcel}" id="btnexcel" press="onDataExport"/>
+								<Button icon="sap-icon://download-from-cloud" tooltip="{i18n>btnLayout}" id="btnLayout" press="onLayoutDown"/>
+								<Button icon="sap-icon://sap-logo-shape" tooltip="{i18n>btnViewDoc}" id="btnDocView" press="onDocView"/>
+								<ToolbarSeparator/>
+								<Button icon="sap-icon://sys-help-2" tooltip="{i18n>btnHelp}" id="btnhelp" press="onhelp"/>
+							</OverflowToolbar>
+						</uitab:extension>
+						<uitab:rowSettingsTemplate>
+							<uitab:RowSettings
+								highlight="{ parts: ['modeloItems>status_status', 'modeloItems>sapLifnr','modeloItems>displayDay'], formatter: '.formatter.StatusColor' }"/>
+						</uitab:rowSettingsTemplate>
+						<uitab:columns>
+							<uitab:Column sortProperty="companyCode" filterProperty="companyCode" minWidth="180" autoResizable="true">
+								<Text text="{i18n>colSociedad}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>companyCode}: {modeloItems>socTxt}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="center" filterProperty="center" minWidth="180" autoResizable="true">
+								<Text text="{i18n>colCentro}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>center}: {modeloItems>cenTxt}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="segment" filterProperty="segment" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colSegment}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{= parseFloat(${modeloItems>segment}) }" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="serial" filterProperty="serial" minWidth="180" autoResizable="true">
+								<Text text="{i18n>colChasis}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>serial}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="fundSubType_ID" filterProperty="fundSubType_ID" minWidth="180" autoResizable="true">
+								<Text text="{i18n>colTipo}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>fundSubType_ID}: {modeloItems>fundSubType_description}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="secuence" filterProperty="secuence" minWidth="50" autoResizable="true">
+								<Text text="{i18n>colPos}" tooltip="{i18n>colPosTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>secuence}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="status_status" filterProperty="status_status" minWidth="150" autoResizable="true">
+								<Text text="{i18n>colStatusUni}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>status_status}: {modeloItems>status_description}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="finSrv_finCode" filterProperty="finSrv_finCode" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colFinan}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>finSrv_finCode}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="currency" filterProperty="currency" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colMonFin}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>currency}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="costAmt" filterProperty="costAmt" minWidth="100" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>colImpUni}" tooltip="{i18n>colImpUniTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>costAmt}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="financedAmt" filterProperty="financedAmt" minWidth="100" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>colImpFin}" tooltip="{i18n>colImpFinTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>financedAmt}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="balanceAmt" filterProperty="balanceAmt" minWidth="100" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>colSalFin}" tooltip="{i18n>colSalFinTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>balanceAmt}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="payedAmt" filterProperty="payedAmt" minWidth="100" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>colImpPag}" tooltip="{i18n>colImpPagTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>payedAmt}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="rateType_rate" filterProperty="rateType_rate" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colTTasa}" tooltip="{i18n>colTTasaTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>rateType_rate}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="rateValue" filterProperty="rateValue" minWidth="100" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>colTVal}" tooltip="{i18n>colTValTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>rateValue}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="dateStart" filterProperty="dateStart" minWidth="100" autoResizable="true" hAlign="Center">
+								<Text text="{i18n>colFecIni}" tooltip="{i18n>colFecIniTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>dateStart}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="dateEnd" filterProperty="dateEnd" minWidth="100" autoResizable="true" hAlign="Center">
+								<Text text="{i18n>colFecFin}" tooltip="{i18n>colFecFinTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>dateEnd}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="dateDisplay" filterProperty="dateDisplay" minWidth="100" autoResizable="true" hAlign="Center">
+								<Text text="{i18n>colFecSalUn}" tooltip="{i18n>colFecSalUnTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>dateUnitExit}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="dateLastPay" filterProperty="dateLastPay" minWidth="100" autoResizable="true" hAlign="Center">
+								<Text text="{i18n>colFecPag}" tooltip="{i18n>colFecPagTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>dateLastPay}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="brandCode" filterProperty="brandCode" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colDesMarca}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>brandCode}: {modeloItems>brandText}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="modelCode" filterProperty="modelCode" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colModCod}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>modelCode}: {modeloItems>modelText}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="modelText" filterProperty="modelText" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colGamCod}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>gamaCode}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="extColorText" filterProperty="extColorText" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colColor}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>extColorText}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="intColorText" filterProperty="intColorText" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colColInt}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>intColorText}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="unitLocation" filterProperty="unitLocation" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colLocAc}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>unitLocation}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="invoiceNum" filterProperty="invoiceNum" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colFact}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>invoiceNum}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="invoiceDate" filterProperty="invoiceDate" minWidth="100" autoResizable="true" hAlign="Center">
+								<Text text="{i18n>colFecFact}" tooltip="{i18n>colFecFactTool}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>invoiceDate}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="invoiceCust" filterProperty="invoiceCust" minWidth="180" autoResizable="true" hAlign="Center">
+								<Text text="{i18n>colCustomer}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>invoiceCust} {modeloItems>invoiceCustTxt}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="intAllDay" filterProperty="intAllDay" minWidth="120" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>colIntAllDay}" tooltip="{i18n>colIntAllDay}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>intAllDay}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="intAllSum" filterProperty="intAllSum" minWidth="120" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>colIntAllSum}" tooltip="{i18n>colIntAllSum}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>intAllSum}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="intMonthDay" filterProperty="intMonthDay" minWidth="120" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>colINTDIASMES}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>intMonthDay}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="intMonthSum" filterProperty="intMonthSum" minWidth="120" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>colIntMes}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>intMonthSum}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="sapBELNR1T" filterProperty="sapBELNR1T" minWidth="120" autoResizable="true">
+								<Text text="{i18n>colsapBELNR1T}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>sapBELNR1T}" wrapping="false"/>
+									<Text text="{modeloItems>unidadID}" tooltip="{modeloItems>unidadID}" visible="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="sapBELNRKA" filterProperty="sapBELNRKA" minWidth="120" autoResizable="true">
+								<Text text="{i18n>colsapBELNRKA}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{modeloItems>sapBELNRKA}" wrapping="false"/>
+									<Text text="{modeloItems>recalNum}" tooltip="{modeloItems>recalNum}" visible="false"/>
+								</uitab:template>
+							</uitab:Column>
+						</uitab:columns>
+						<uitab:rowActionTemplate visible="true">
+							<uitab:RowAction>
+								<uitab:items>
+									<uitab:RowActionItem press="onTablaInt" type="Navigation" icon="sap-icon://feeder-arrow"/>
+								</uitab:items>
+							</uitab:RowAction>
+						</uitab:rowActionTemplate>
+					</uitab:Table>
+				</f:content>
+			</f:DynamicPage>
+		</App>
+	</Shell>
+</mvc:View>

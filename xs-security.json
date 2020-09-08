@@ -1,0 +1,77 @@
+{
+	"xsappname": "bavnpp001",
+	"tenant-mode": "dedicated",
+	"description": "Security profile of called application",
+	"scopes": [{
+		"name": "$XSAPPNAME.FITRANS",
+		"description": "Permite realizar traspasos financieros."
+	}, {
+		"name": "$XSAPPNAME.PROPAG",
+		"description": "Permite realizar propuestas de pago."
+	}, {
+		"name": "$XSAPPNAME.PROPAGREV",
+		"description": "Permite anular propuestas de pago."
+	}, {
+		"name": "$XSAPPNAME.CONFPAG",
+		"description": "Permite realizar confirmaciones de pago y pagos por compensación."
+	}, {
+		"name": "$XSAPPNAME.CONFPAGREV",
+		"description": "Permite anular confirmaciones de pago y pagos por compensación."
+	}, {
+		"name": "$XSAPPNAME.CURREX",
+		"description": "Permite realizar cambios de moneda."
+	}, {
+		"name": "$XSAPPNAME.SECFIN",
+		"description": "Permite utilizar segunda financiera."
+	}, {
+		"name": "$XSAPPNAME.GENINT",
+		"description": "Permite generar intereses fin de mes."
+	}, {
+		"name": "$XSAPPNAME.RECAL",
+		"description": "Permite recalendarizar unidades."
+	}, {
+		"name": "uaa.user",
+		"description": "UAA"
+	}],
+	"role-templates": [{
+		"name": "Facturacion",
+		"description": "Monitor Plan Piso: Facturación.",
+		"scope-references": [
+			"uaa.user",
+			"$XSAPPNAME.PROPAG",
+			"$XSAPPNAME.PROPAGREV",
+			"$XSAPPNAME.CONFPAG",
+			"$XSAPPNAME.CONFPAGREV"
+		]
+	}, {
+		"name": "Gerente_Admin",
+		"description": "Monitor Plan Piso: Gerente administrativo.",
+		"scope-references": [
+			"uaa.user",
+			"$XSAPPNAME.GENINT",
+			"$XSAPPNAME.RECAL",
+			"$XSAPPNAME.CURREX"
+		]
+	}, {
+		"name": "Tesor_Corp",
+		"description": "Monitor Plan Piso: Tesorería - Acceso a todas funcionalidades.",
+		"scope-references": [
+			"uaa.user",
+			"$XSAPPNAME.FITRANS",
+			"$XSAPPNAME.PROPAG",
+			"$XSAPPNAME.PROPAGREV",
+			"$XSAPPNAME.CONFPAG",
+			"$XSAPPNAME.CONFPAGREV",
+			"$XSAPPNAME.SECFIN",
+			"$XSAPPNAME.GENINT",
+			"$XSAPPNAME.RECAL",
+			"$XSAPPNAME.CURREX"
+		]
+	}, {
+		"name": "Token_Exchange",
+		"description": "UAA",
+		"scope-references": [
+			"uaa.user"
+		]
+	}]
+}

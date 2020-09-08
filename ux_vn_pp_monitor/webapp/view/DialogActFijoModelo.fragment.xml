@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>colModDes}" class="sapUiPopupWithPadding"
+		items="{ path:'modeloCatalog>/CaractSet', filters : [ { path : 'Charactname', operator : 'EQ', value1 : 'ZAP_MODELO'} ], templateShareable:true }"
+		showClearButton="true" search="_onSearchModel" confirm="_onConfirmModel" cancel="_onCanelModel" multiSelect="false"
+		rememberSelections="false" id="sdModelo">
+		<StandardListItem iconDensityAware="false" iconInset="false" title="{modeloCatalog>ValueCharLong}"
+			description="{modeloCatalog>DescriptionLong}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

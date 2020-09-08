@@ -1,0 +1,111 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogTablaIntereses" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="{i18n>TblaIntTit}" type="Standard"
+		verticalScrolling="true" contentWidth="80%" contentHeight="70%">
+		<content>
+			<uitab:Table id="tableInt" rows="{TabIntCollection>/}" selectionMode="None" visibleRowCount="15">
+				<uitab:columns>
+					<!--Fecha Inicio-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="dDateStart" filterProperty="dDateStart" minWidth="120" autoResizable="true"
+						tooltip="{i18n>filtroFechaIniFinan}">
+						<Text text="{i18n>filtroFechaIniFinan}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TabIntCollection>dDateStart}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Fecha Fin-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="dDateEnd" filterProperty="dDateEnd" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colFecFinTool}">
+						<Text text="{i18n>colFecFinTool}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TabIntCollection>dDateEnd}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Ejercicio-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="iYear" filterProperty="iYear" minWidth="100" autoResizable="true"
+						tooltip="{i18n>ejercicio}">
+						<Text text="{i18n>ejercicio}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TabIntCollection>iYear}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Periodo-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="iPeriod" filterProperty="iPeriod" minWidth="100" autoResizable="true"
+						tooltip="{i18n>Periodo}">
+						<Text text="{i18n>Periodo}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TabIntCollection>iPeriod}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Día-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="iDay" filterProperty="iDay" minWidth="100" autoResizable="true"
+						visible="{HelpValues>/ShowDayIntTable}" tooltip="{i18n>colDia}">
+						<Text text="{i18n>colDia}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TabIntCollection>iDay}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Pago-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="bPayFlag" filterProperty="bPayFlag" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colPago}">
+						<Text text="{i18n>colPago}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TabIntCollection>bPayFlag}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Tasa Variable-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="fRateValue" filterProperty="fRateValue" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colTVar}">
+						<Text text="{i18n>colTVar}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'TabIntCollection>fRateValue', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 4} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Días de Interes-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="iIntDays" filterProperty="iIntDays" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colIntDias}">
+						<Text text="{i18n>colIntDias}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{TabIntCollection>iIntDays}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Saldo a Financiar-->
+					<uitab:Column hAlign="Right" width='auto' sortProperty="fBalanceAmt" filterProperty="fBalanceAmt" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colSalFinTool}">
+						<Text text="{i18n>colSalFinTool}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'TabIntCollection>fBalanceAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Cantidad pagada-->
+					<uitab:Column hAlign="Right" width='auto' sortProperty="fIntSum" filterProperty="fIntSum" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colfAMtPayy}">
+						<Text text="{i18n>colfAMtPayy}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path:'TabIntCollection>fAmtPay', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2}}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Intereses acumulados-->
+					<uitab:Column hAlign="Right" width='auto' sortProperty="fIntSum" filterProperty="fIntSum" minWidth="100" autoResizable="true"
+						tooltip="{i18n>colINTACUM}">
+						<Text text="{i18n>colINTACUM}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'TabIntCollection>fIntSum', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2}}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+				<uitab:footer>
+					<Label text="{path: 'i18n>totalInt'}: $ {oImporteSumatoria>/sumatoriaTraspaso}"/>
+				</uitab:footer>
+			</uitab:Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>cancelaranu}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress1"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

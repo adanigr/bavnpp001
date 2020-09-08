@@ -1,0 +1,7 @@
+STATUS,DESCRIPTION,ACTIVE
+FIN,Financiamiento,true
+PRO,Propuesta de pago,true
+PAG,Pagado,true
+ANU,Elemento anulado,false
+SAL,Salida de Unidad,true
+NONE,Sin financiamiento,false

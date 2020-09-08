@@ -1,0 +1,49 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic" xmlns:f="sap.ui.layout.form" controllerName="vn.pp.ux_vn_pp_config.controller.CodPro_001_new"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<semantic:SemanticPage id="CodPro_001_new" headerPinnable="false" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+		headerExpanded="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="CodPro_001_new"/>
+		</semantic:titleHeading>
+		<!-- Header Content -->
+		<semantic:headerContent></semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<Panel class="sapUiContentPadding">
+				<f:SimpleForm id="formCodPro_001_new" editable="true" layout="ResponsiveGridLayout" title="{i18n>newItem}" labelSpanXL="3" labelSpanL="3"
+					labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+					columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						<Label text="{i18n>sapVKORG}" required="true"/>
+						<Select id="isapVKORG_CodPro_001_new" selectedKey="{HelpValues>/CodPro_001_new/sapVKORG}"
+							items="{ path: 'HelpValues>/SelectedWerks', templateSharable: 'false' }">
+							<core:Item key="{HelpValues>Werks}" text="{HelpValues>Werks}: {HelpValues>Name1}"/>
+						</Select>
+						<Label text="{i18n>sapBANKL}" required="true"/>
+						<Input value="{HelpValues>/CodPro_001_new/sapBANKL}" maxLength="3"></Input>
+						<Label text="{i18n>finCode}" required="true"/>
+						<Select id="iFinCode_CodPro_001_new" selectedKey="{HelpValues>/CodPro_001_new/finSrv_finCode}"
+							items="{ path: 'modeloConfig>/FinSrvs_001', templateSharable: 'false' }">
+							<core:Item key="{modeloConfig>finCode}" text="{modeloConfig>finCode}: {modeloConfig>description}"/>
+						</Select>
+						<Label text="{i18n>codPro}" required="true"/>
+						<Input value="{modeloConfig>codPro}" maxLength="10"/>
+					</f:content>
+				</f:SimpleForm>
+				<List id="listCodPro_001_new" visible="false"
+					items="{ path: 'modeloConfig>/CodPro_001', parameters : {$$updateGroupId : 'CodPro_001_new'}, filters : [ { path : 'sapVKORG', operator : 'EQ', value1 : 'XXXX'} ]}">
+					<StandardListItem title="{modeloConfig>sapVKORG}"/>
+				</List>
+			</Panel>
+		</semantic:content>
+		<!-- Semantic Footer Buttons -->
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveAction" text="{i18n>txtGuardar}" press="onSave"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button id="cancelAction" text="{i18n>txtDescartar}" press="onDiscard"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

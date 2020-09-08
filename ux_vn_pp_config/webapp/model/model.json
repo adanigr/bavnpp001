@@ -1,0 +1,334 @@
+{
+	"FinRates_001_new": {
+		"finType_finType": "",
+		"rateType_rate": "",
+		"currency": "",
+		"fixedVal": 0,
+		"active": false
+	},
+	"FinFunTypes_001_new": {
+		"finSrv_finCode": "",
+		"fundType_ID": "",
+		"active": false
+	},
+	"CurrencySet": [{
+		"currency": "MXN",
+		"description": "Pesos Mexicanos"
+	}, {
+		"currency": "USD",
+		"description": "Dólares Estadounidenses"
+	}],
+	"TransTypeSet": [{
+		"transType": "I",
+		"description": "Ingreso Traspaso FI"
+	}, {
+		"transType": "E",
+		"description": "Egreso Traspaso FI"
+	}, {
+		"transType": "X",
+		"description": "Otro Proceso"
+	}],
+	"TransferAccs_001_new": {
+		"center": "",
+		"finServ_finCode": "",
+		"transType": "",
+		"sapHkont": "",
+		"currency": "",
+		"description": "",
+		"flag1T": false,
+		"flagKA": false,
+		"flagIntKZ": false,
+		"flagTL_KA": false,
+		"flagTL_1T": false,
+		"flagTL_KA_FE": false,
+		"flagTL_1T_FE": false,
+		"flagTR_L_BBVA": false,
+		"flagTR_L_BMX": false,
+		"active": false
+	},
+	"MMTrans_001_new": {
+		"center": "",
+		"finServ_finCode": "",
+		"flagUpdTable": false
+	},
+	"FundTypeComps_001_new": {
+		"fundType_ID": "",
+		"companyCode": "",
+		"active": false
+	},
+	"FundSubTypeComps_001_new": {
+		"fundSubType_ID": "",
+		"companyCode": "",
+		"active": false
+	},
+	"FinSrvCredits_001_new": {
+		"sapVKORG": "",
+		"description": "",
+		"lineMXN": 0,
+		"lineUSD": 0,
+		"balanceMXN": 0,
+		"balanceUSD": 0,
+		"diffPerMXN": 0,
+		"diffPerUSD": 0,
+		"finDays": 0,
+		"graceDays": 0,
+		"flagNew": false,
+		"flagUsed": false,
+		"flagDemo": false,
+		"flagCession": false,
+		"flagAccesory": false,
+		"finServ_finCode": ""
+	},
+	"FinSrvComps_001_new": {
+		"finServ_finCode": "",
+		"companyCode": "",
+		"active": false
+	},
+	"FinOperAccs_001_new": {
+		"sapVKORG": "",
+		"sapSEGMENT": "",
+		"sapFINOPER": "",
+		"sapHKONT": "",
+		"sapKOSTL": ""
+	},
+	"CostsFin_001_new": {
+		"companyCode": "",
+		"costCode": "",
+		"sap1T_Code": "",
+		"sap1T_Text": "",
+		"sapKA_Code": "",
+		"sapKA_Text": "",
+		"itemText": "",
+		"active": false,
+		"fundSubType_ID": ""
+	},
+	"CodPro_001_new": {
+		"sapVKORG": "",
+		"sapBANKL": "",
+		"finSrv_finCode": "",
+		"codPro": ""
+	},
+	"RateTypes_001_new": {
+		"rate": "",
+		"active": false
+	},
+	"FundSubTypes_001_new": {
+		"ID": "",
+		"fundType_ID": "",
+		"description": "",
+		"active": false
+	},
+	"FundTypes_001_new": {
+		"ID": "",
+		"description": "",
+		"active": false
+	},
+	"FinTypes_001_new": {
+		"finType": "",
+		"description": "",
+		"flagUnitPayInterest": false,
+		"flagRecalUnit": false,
+		"flagSaveInt": false,
+		"flagSaveIntKR": false,
+		"flagSaveIntKZ": false
+	},
+	"FinSrvs_001_new": {
+		"finCode": "",
+		"description": "",
+		"sapLifnr": "",
+		"active": false,
+		"finType_finType": ""
+	},
+	"RateTypesValues_001_new": {
+		"rate": "",
+		"date": "",
+		"rateValue": 0
+	},
+	"SelectedConfig": false,
+	"SelectedConfigType": {
+		"action": "none"
+	},
+	"SelectedTableList": {
+
+	},
+	"SelectedBukrs": [],
+	"SelectedWerks": [],
+	"TableList": [{
+		"type": "ConfigXData",
+		"action": "RateTypesValues_001",
+		"newAction": "RateTypesValues_001_new",
+		"title": "RateTypesValues_001",
+		"descp": "Valores para tipos de tasa.",
+		"icon": "sap-icon://table-view"
+	}, {
+		"type": "ConfigXMD",
+		"action": "FinTypes_001",
+		"newAction": "FinTypes_001_new",
+		"title": "FinTypes_001",
+		"descp": "Definir el comportamiento de un tipo de financiera.",
+		"icon": "sap-icon://customize"
+	}, {
+		"type": "ConfigXMD",
+		"action": "FinSrvs_001",
+		"newAction": "FinSrvs_001_new",
+		"title": "FinSrvs_001",
+		"descp": "Catalogo de financieras habilitadas.",
+		"icon": "sap-icon://customize"
+	}, {
+		"type": "ConfigXMD",
+		"action": "FundTypes_001",
+		"newAction": "FundTypes_001_new",
+		"title": "FundTypes_001",
+		"descp": "Catálogo para tipos de financiamientos.",
+		"icon": "sap-icon://customize"
+	}, {
+		"type": "ConfigXMD",
+		"action": "FundSubTypes_001",
+		"newAction": "FundSubTypes_001_new",
+		"title": "FundSubTypes_001",
+		"descp": "Catálogo para subtipos de financiamientos.",
+		"icon": "sap-icon://customize"
+	}, {
+		"type": "ConfigXMD",
+		"action": "RateTypes_001",
+		"newAction": "RateTypes_001_new",
+		"title": "RateTypes_001",
+		"descp": "Catálogo para tipos de tasas de financiamiento.",
+		"icon": "sap-icon://customize"
+	}, {
+		"type": "ConfigXRel",
+		"action": "FinFunTypes_001",
+		"newAction": "FinFunTypes_001_new",
+		"title": "FinFunTypes_001",
+		"descp": "Relación entre Financiera y Tipos de Financiamientos.",
+		"icon": "sap-icon://combine"
+	}, {
+		"type": "ConfigXRel",
+		"action": "FinRates_001",
+		"newAction": "FinRates_001_new",
+		"title": "FinRates_001",
+		"descp": "Relación entre tipos Financiera y Tipos de Tasas.",
+		"icon": "sap-icon://combine"
+	}, {
+		"type": "ConfigXCFG",
+		"action": "CodPro_001",
+		"newAction": "CodPro_001_new",
+		"title": "CodPro_001",
+		"descp": "Configuración para código de proveedor utilizado en layouts.",
+		"icon": "sap-icon://settings"
+	}, {
+		"type": "ConfigXCFG",
+		"action": "CostsFin_001",
+		"newAction": "CostsFin_001_new",
+		"title": "CostsFin_001",
+		"descp": "Configuración de costos a financiar.",
+		"icon": "sap-icon://settings"
+	}, {
+		"type": "ConfigXCFG",
+		"action": "FinOperAccs_001",
+		"newAction": "FinOperAccs_001_new",
+		"title": "FinOperAccs_001",
+		"descp": "Configuración documentos FI para Centros de Costos.",
+		"icon": "sap-icon://settings"
+	}, {
+		"type": "ConfigXCFG",
+		"action": "FinSrvComps_001",
+		"newAction": "FinSrvComps_001_new",
+		"title": "FinSrvComps_001",
+		"descp": "Relación de financieras activas para una sociedad.",
+		"icon": "sap-icon://settings"
+	}, {
+		"type": "ConfigXCFG",
+		"action": "FinSrvCredits_001",
+		"newAction": "FinSrvCredits_001_new",
+		"title": "FinSrvCredits_001",
+		"descp": "Configuración de créditos por financiera.",
+		"icon": "sap-icon://settings"
+	}, {
+		"type": "ConfigXCFG",
+		"action": "FundTypeComps_001",
+		"newAction": "FundTypeComps_001_new",
+		"title": "FundTypeComps_001",
+		"descp": "Tipos de financiamiento habilitados por sociedad.",
+		"icon": "sap-icon://settings"
+	}, {
+		"type": "ConfigXCFG",
+		"action": "FundSubTypeComps_001",
+		"newAction": "FundSubTypeComps_001_new",
+		"title": "FundSubTypeComps_001",
+		"descp": "Subtipos de financiamiento habilitados por sociedad.",
+		"icon": "sap-icon://settings"
+	}, {
+		"type": "ConfigXCFG",
+		"action": "MMTrans_001",
+		"newAction": "MMTrans_001_new",
+		"title": "MMTrans_001",
+		"descp": "Configuración traspasos logísticos.",
+		"icon": "sap-icon://settings"
+	}, {
+		"type": "ConfigXCFG",
+		"action": "TransferAccs_001",
+		"newAction": "TransferAccs_001_new",
+		"title": "TransferAccs_001",
+		"descp": "Configuración de cuentas SAP utilizadas para distintos documentos FI.",
+		"icon": "sap-icon://settings"
+	}],
+	"ConfigTypes": [{
+		"action": "ConfigXMD",
+		"title": "Configuración Datos Maestros",
+		"descp": "Modificación de datos maestros para Plan Piso.",
+		"icon": "sap-icon://activate",
+		"reqWerks": false
+	}, {
+		"action": "ConfigXCFG",
+		"title": "Configuración Parametrizaciones",
+		"descp": "Modificación de parametrizaciones por organización.",
+		"icon": "sap-icon://action-settings",
+		"reqWerks": true
+	}, {
+		"action": "ConfigXRel",
+		"title": "Configuración Relaciones",
+		"descp": "Relaciones entre tablas configuradas y parametrizaciones.",
+		"icon": "sap-icon://chain-link",
+		"reqWerks": true
+	}, {
+		"action": "ConfigXData",
+		"title": "Carga datos transaccionales",
+		"descp": "Alimentar valores de tasas y datos transaccionales.",
+		"icon": "sap-icon://add-product",
+		"reqWerks": false
+	}],
+	"Sociedad": [{
+		"key": "1101",
+		"name": "ZAPATA S.A.DE C.V."
+	}, {
+		"key": "1102",
+		"name": "VEHICULOS JAPONESES ZAPATA"
+	}, {
+		"key": "4100",
+		"name": "ZAPATA CAMIONES S.A.DE C.V."
+	}],
+	"Segmentos": [{
+		"key": "0000000100",
+		"name": "VEHICULOS NUEVOS"
+	}, {
+		"key": "0000000300",
+		"name": "CARGA"
+	}, {
+		"key": "0000000301",
+		"name": "PASAJE"
+	}, {
+		"key": "0000000302",
+		"name": "VANES"
+	}, {
+		"key": "0000000303",
+		"name": "TRACTO"
+	}],
+	"Moneda": [{
+		"key": "MXN",
+		"name": "Pesos Mexicanos"
+	}, {
+		"key": "USD",
+		"name": "Dólares Estadounidenses"
+	}]
+}

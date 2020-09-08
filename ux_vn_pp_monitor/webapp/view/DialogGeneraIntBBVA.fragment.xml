@@ -1,0 +1,130 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogGeneraIntBBVA" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="true" title="{i18n>GeneraInteresesTitulo}" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<!-- Inicio de Tabla Recalendarización de Unidad -->
+			<uitab:Table id="tablagenIntBbva" rows="{GeneraInteBbvaCollection>/}" selectionMode="MultiToggle">
+				<uitab:columns>
+					<!--Columna de "Sociedad" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="82" autoResizable="true">
+						<Text text="{i18n>filtroSociedad}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>companyCode}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Centro" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="66" autoResizable="true">
+						<Text text="{i18n>filtroCentro}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>center}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Segmento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="segment" filterProperty="segment" minWidth="87" autoResizable="true">
+						<Text text="{i18n>colSegment}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>segment}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Vin\Chasis\No.Serie" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="serial" filterProperty="serial" minWidth="167" autoResizable="true">
+						<Text text="{i18n>colChasis}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>serial}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Tipo de Financiamiento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="fundSubType_ID" filterProperty="fundSubType_ID" minWidth="120" autoResizable="true">
+						<Text text="{i18n>colTipofina}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>fundSubType_ID}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Posición"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="secuence" filterProperty="secuence" minWidth="76" autoResizable="true">
+						<Text text="{i18n>colPos}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>secuence}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna Financiera Actual-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="finSrv_finCode" filterProperty="finSrv_finCode" minWidth="123" autoResizable="true">
+						<Text text="{i18n>FinancieraActual}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>finSrv_finCode}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Moneda"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="currency" filterProperty="currency" minWidth="120" autoResizable="true">
+						<Text text="{i18n>colMonFin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>currency}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Ejercicio"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="sapGJAHR" filterProperty="sapGJAHR" minWidth="123" autoResizable="true">
+						<Text text="{i18n>ejercicio}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>sapGJAHR}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Periodo Contable"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="sapMONAT" filterProperty="sapMONAT" minWidth="123" autoResizable="true">
+						<Text text="{i18n>PerContable}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>sapMONAT}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Número días intereses del mes"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="intMonthDay" filterProperty="intMonthDay" minWidth="123" autoResizable="true">
+						<Text text="{i18n>colINTDIAS}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>intMonthDay}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Fecha Interés"-->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="interestDate" filterProperty="interestDate" minWidth="123" autoResizable="true">
+						<Text text="{i18n>filtroFechInt}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{GeneraInteBbvaCollection>interestDate}" wrapping="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Importe de Intereses"-->
+					<uitab:Column width='auto' sortProperty="interestAmt" filterProperty="interestAmt" minWidth="150" autoResizable="true">
+						<Text text="{i18n>colImpItnt}"/>
+						<uitab:template>
+							<Input value="{GeneraInteBbvaCollection>interestAmt}" change="onFinDays" required="true" liveChange="oValidCaracter"
+								enabled="{= (${GeneraInteBbvaCollection>flagGen} === true)? false : true }"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+			</uitab:Table>
+			<Table id="FinancedItemsIntBbva" visible="false"
+				items="{ path: 'modeloOperation>/FinancedItemBBVA', filters : [ { path : 'sapGJAHR', operator : 'EQ', value1 : 'XXXX'} ] }">
+				<columns>
+					<Column>
+						<Text text="ID"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier text="{modeloOperation>ID}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>Apcambios}" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress"/>
+			<Button text="{i18n>cerrarDialogo}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonClose"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

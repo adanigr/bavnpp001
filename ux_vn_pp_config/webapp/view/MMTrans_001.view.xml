@@ -1,0 +1,76 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic" controllerName="vn.pp.ux_vn_pp_config.controller.MMTrans_001" xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:SemanticPage id="MMTrans_001" headerPinnable="false" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+		headerExpanded="true" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="MMTrans_001"/>
+		</semantic:titleHeading>
+		<!-- Header Content -->
+		<semantic:headerContent>
+			<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="false" showClearButton="false">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="_MMTrans_001" name="A" label="{i18n>sapWERKS}" labelTooltip="{i18n>sapWERKS}" partOfCurrentVariant="true"
+						visibleInFilterBar="true">
+						<fb:control>
+							<MultiComboBox id="cbcenter_MMTrans_001" items="{ path: 'HelpValues>/SelectedWerks', templateSharable: false }">
+								<core:Item key="{HelpValues>Werks}" text="{HelpValues>Bukrs}: {HelpValues>Name1}"/>
+							</MultiComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="_MMTrans_001" name="B" label="{i18n>finCode}" labelTooltip="{i18n>finCode}" partOfCurrentVariant="true"
+						visibleInFilterBar="true">
+						<fb:control>
+							<ComboBox id="cbFinCode_MMTrans_001" items="{ path: 'modeloConfig>/FinSrvs_001', templateSharable: 'true' }">
+								<core:Item key="{modeloConfig>finCode}" text="{modeloConfig>finCode}: {modeloConfig>description}"/>
+							</ComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<table:Table visibleRowCountMode="Auto" id="tableMMTrans_001"
+				rows="{ path: 'modeloConfig>/MMTrans_001', parameters : {$$updateGroupId : 'MMTrans_001'}, filters : [ { path : 'center', operator : 'EQ', value1 : 'XXXX'} ] }"
+				selectionMode="MultiToggle" paste="onPaste" ariaLabelledBy="title">
+				<table:extension>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://delete" tooltip="{i18n>btnDel}" id="btnDel" press="onDelRecord"/>
+						<Button icon="sap-icon://add" tooltip="{i18n>btnAdd}" id="btnAdd" press="onNewRecord"/>
+						<ToolbarSeparator/>
+						<Button icon="sap-icon://excel-attachment" tooltip="{i18n>btnExcel}" id="btnExcel" press="onDataExport"/>
+					</OverflowToolbar>
+				</table:extension>
+				<table:columns>
+					<table:Column sortProperty="sapWERKS" filterProperty="sapWERKS">
+						<Label text="{i18n>sapWERKS}" tooltip="{i18n>sapWERKS}"/>
+						<table:template>
+							<Text text="{modeloConfig>center}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="finServ_finCode" filterProperty="finServ_finCode">
+						<Label text="{i18n>finCode}" tooltip="{i18n>finCode}"/>
+						<table:template>
+							<Text text="{modeloConfig>finServ_finCode}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="flagUpdTable" filterProperty="flagUpdTable">
+						<Label text="{i18n>flagUpdTable}" tooltip="{i18n>flagUpdTable}"/>
+						<table:template>
+							<CheckBox id="cbflagUpdTable" selected="{modeloConfig>flagUpdTable}"/>
+						</table:template>
+					</table:Column>
+				</table:columns>
+			</table:Table>
+		</semantic:content>
+		<!-- Semantic Footer Buttons -->
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveAction" text="{i18n>txtGuardar}" press="onSave"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button id="cancelAction" text="{i18n>txtDescartar}" press="onDiscard"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

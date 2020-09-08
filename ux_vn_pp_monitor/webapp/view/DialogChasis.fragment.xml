@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:core="sap.ui.core">
+	<ValueHelpDialog title="{i18n>filtroChasis}" ok="onChasisValueHelpOkPress" cancel="onChasisValueHelpCancelPress"
+		afterClose="onChasisValueHelpAfterClose" key="CHASIS" descriptionKey="CHASIS" supportRanges="true" supportRangesOnly="true"></ValueHelpDialog>
+</core:FragmentDefinition>

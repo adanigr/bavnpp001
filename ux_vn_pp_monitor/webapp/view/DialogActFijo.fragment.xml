@@ -1,0 +1,148 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogActFijo" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="true" title="{i18n>ActivoFijoTitulo}" type="Standard">
+		<content>
+			<!-- Inicio de Tabla Activo Fijo -->
+			<uitab:Table id="tablaActFijo" rows="{ActFijoCollection>/}" selectionMode="None">
+				<uitab:columns>
+					<!--Columna de "Sociedad" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="companyCode" filterProperty="companyCode" minWidth="150" autoResizable="true"
+						tooltip="{i18n>filtroSociedad}">
+						<Text text="{i18n>filtroSociedad}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input type="Text" value="{ActFijoCollection>companyCode}" placeholder="Seleccione Sociedad..." valueHelpOnly="true" showValueHelp="true"
+								valueHelpRequest="onValueHelpSociedad"></Input>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Centro" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="150" autoResizable="true"
+						tooltip="{i18n>filtroCentro}">
+						<Text text="{i18n>filtroCentro}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input type="Text" value="{ActFijoCollection>center}" placeholder="Seleccione Centro..." valueHelpOnly="true" showValueHelp="true"
+								valueHelpRequest="onValueHelpCentro"></Input>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Vin\Chasis\No.Serie" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="serial" filterProperty="serial" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colChasis}">
+						<Text text="{i18n>colChasis}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input id="iSerial" value="{path:'ActFijoCollection>serial' }" required="true" change="ActFij_PPSet "/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Financiera" -->
+					<uitab:Column hAlign="Center" sortProperty="finCode" filterProperty="finCode" minWidth="200" autoResizable="true"
+						tooltip="{i18n>filtroFinanciera}">
+						<Text text="{i18n>filtroFinanciera}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<ComboBox selectionChange="onValidateFinSrv" items="{ path:'modeloCatalog>/FinSet', templateShareable:false }"
+								selectedKey="{ActFijoCollection>finCode}">
+								<core:Item key="{modeloCatalog>finCode}" text="{modeloCatalog>finCode}: {modeloCatalog>description}"/>
+							</ComboBox>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Fecha Inicio" -->
+					<uitab:Column hAlign="Center" sortProperty="dateStart" filterProperty="dateStart" minWidth="180" autoResizable="true"
+						tooltip="{i18n>filtroFechaIniFinan}">
+						<Text text="{i18n>filtroFechaIniFinan}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<DatePicker
+								value="{path:'ActFijoCollection>dateStart', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"
+								required="true" change="handleFechaInicio"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Matrícula" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="plateNum" filterProperty="plateNum" minWidth="150" autoResizable="true"
+						tooltip="{i18n>filtroPlaca}">
+						<Text text="{i18n>filtroPlaca}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input id="iplateNum" value="{path:'ActFijoCollection>plateNum'}" required="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!-- Importe Unidad -->
+					<uitab:Column sortProperty="Center" filterProperty="costAmt" minWidth="135" autoResizable="true" tooltip="{i18n>importdeUnidad}"
+						hAlign="Right">
+						<Text text="{i18n>importdeUnidad}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input value="{ActFijoCollection>costAmt}" required="true" enabled="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!-- Importe a financiar -->
+					<uitab:Column sortProperty="Center" filterProperty="financedAmt" minWidth="135" autoResizable="true" tooltip="{i18n>importaFinan}"
+						hAlign="Right">
+						<Text text="{i18n>importaFinan}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input value="{ActFijoCollection>financedAmt}" required="true" liveChange="oValidCaracter"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Segmento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="segment" filterProperty="segment" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colSegment}">
+						<Text text="{i18n>colSegment}"/>
+						<uitab:template>
+							<ComboBox id="mcbSegmentoActfijo" items="{ path: 'HelpValues>/Segmentos',templateShareable:true }" enabled="false">
+								<core:Item key="{HelpValues>key}" text="{= parseFloat(${HelpValues>key}) }: {HelpValues>name}"/>
+							</ComboBox>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Marca-->
+					<uitab:Column hAlign="Center" sortProperty="brandCode" filterProperty="brandCode" minWidth="150" autoResizable="true"
+						tooltip="{i18n>filtroMarca}">
+						<Text text="{i18n>filtroMarca}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input type="Text" value="{ActFijoCollection>brandCode}" enabled="false" valueHelpOnly="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Modelo" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="modelCode" filterProperty="modelCode" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colModDes}">
+						<Text text="{i18n>colModDes}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input type="Text" value="{ActFijoCollection>modelCode}" enabled="false" valueHelpOnly="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Gama" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="gamaCode" filterProperty="gamaCode" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colGam}">
+						<Text text="{i18n>colGam}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input type="Text" value="{ActFijoCollection>gamaCode}" enabled="false" valueHelpOnly="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Color Exterior" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="extColorCode" filterProperty="extColorCode" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colColorEx}">
+						<Text text="{i18n>colColorEx}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input type="Text" value="{ActFijoCollection>extColorCode}" enabled="false" valueHelpOnly="true"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Color Interior" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="intColorCode" filterProperty="intColorCode" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colColInt}">
+						<Text text="{i18n>colColInt}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Input type="Text" value="{ActFijoCollection>intColorCode}" enabled="false" valueHelpOnly="true"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+			</uitab:Table>
+			<!-- Fin de Tabla Traspaso de Unidad -->
+		</content>
+		<beginButton/>
+		<!--Inicio de Botones-->
+		<buttons>
+			<!--<Button text="{i18n>BtnAdd}" icon="sap-icon://add" type="Neutral" iconFirst="true" width="auto" enabled="true" visible="true"-->
+			<!--	iconDensityAware="false" press="oAddElement"/>-->
+			<Button text="{i18n>confirmaractFijo}" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="_onButtonPress"/>
+			<Button text="{i18n>cerrarDialogo}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonClose"/>
+		</buttons>
+		<!--Fin de Botones-->
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

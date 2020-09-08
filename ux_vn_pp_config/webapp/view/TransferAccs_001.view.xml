@@ -1,0 +1,154 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic" controllerName="vn.pp.ux_vn_pp_config.controller.TransferAccs_001" xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:SemanticPage id="TransferAccs_001" headerPinnable="false" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+		headerExpanded="true" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="TransferAccs_001"/>
+		</semantic:titleHeading>
+		<!-- Header Content -->
+		<semantic:headerContent>
+			<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="false" showClearButton="false">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="_TransferAccs_001" name="A" label="{i18n>sapVKORG}" labelTooltip="{i18n>sapVKORG}"
+						partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<MultiComboBox id="cbWerks_TransferAccs_001" items="{ path: 'HelpValues>/SelectedWerks', templateSharable: false }">
+								<core:Item key="{HelpValues>Werks}" text="{HelpValues>Werks}: {HelpValues>Name1}"/>
+							</MultiComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="_TransferAccs_001" name="B" label="{i18n>finCode}" labelTooltip="{i18n>finCode}" partOfCurrentVariant="true"
+						visibleInFilterBar="true">
+						<fb:control>
+							<ComboBox id="cbFinCode_TransferAccs_001" items="{ path: 'modeloConfig>/FinSrvs_001', templateSharable: 'true' }">
+								<core:Item key="{modeloConfig>finCode}" text="{modeloConfig>finCode}: {modeloConfig>description}"/>
+							</ComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<table:Table visibleRowCountMode="Auto" id="tableTransferAccs_001"
+				rows="{ path: 'modeloConfig>/TransferAccs_001', parameters : {$$updateGroupId : 'TransferAccs_001'}, filters : [ { path : 'center', operator : 'EQ', value1 : 'XXXX'} ] }"
+				selectionMode="MultiToggle" paste="onPaste" ariaLabelledBy="title">
+				<table:extension>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://delete" tooltip="{i18n>btnDel}" id="btnDel" press="onDelRecord"/>
+						<Button icon="sap-icon://add" tooltip="{i18n>btnAdd}" id="btnAdd" press="onNewRecord"/>
+						<ToolbarSeparator/>
+						<Button icon="sap-icon://excel-attachment" tooltip="{i18n>btnExcel}" id="btnExcel" press="onDataExport"/>
+					</OverflowToolbar>
+				</table:extension>
+				<table:columns>
+					<table:Column minWidth="100" sortProperty="center" filterProperty="center">
+						<Label text="{i18n>sapVKORG}" tooltip="{i18n>sapVKORG}"/>
+						<table:template>
+							<Text text="{modeloConfig>center}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="150" sortProperty="finServ_finCode" filterProperty="finServ_finCode">
+						<Label text="{i18n>finCode}" tooltip="{i18n>finCode}"/>
+						<table:template>
+							<Text text="{modeloConfig>finServ_finCode}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="150" sortProperty="transType" filterProperty="transType">
+						<Label text="{i18n>transType}" tooltip="{i18n>transType}"/>
+						<table:template>
+							<Text text="{modeloConfig>transType}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="150" sortProperty="sapHkont" filterProperty="sapHkont">
+						<Label text="{i18n>sapHKONT}" tooltip="{i18n>sapHKONT}"/>
+						<table:template>
+							<Text text="{modeloConfig>sapHkont}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="150" sortProperty="currency" filterProperty="currency">
+						<Label text="{i18n>currency}" tooltip="{i18n>currency}"/>
+						<table:template>
+							<Text text="{modeloConfig>currency}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="300" sortProperty="description" filterProperty="description">
+						<Label text="{i18n>description}" tooltip="{i18n>description}"/>
+						<table:template>
+							<Input value="{modeloConfig>description}" maxLength="200"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="100" sortProperty="flagKA" filterProperty="flagKA">
+						<Label text="{i18n>flagKA}" tooltip="{i18n>flagKA}"/>
+						<table:template>
+							<CheckBox id="cbflagKA" selected="{modeloConfig>flagKA}"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="100" sortProperty="flag1T" filterProperty="flag1T">
+						<Label text="{i18n>flag1T}" tooltip="{i18n>flag1T}"/>
+						<table:template>
+							<CheckBox id="cbflag1T" selected="{modeloConfig>flag1T}"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="100" sortProperty="flagIntKZ" filterProperty="flagIntKZ">
+						<Label text="{i18n>flagIntKZ}" tooltip="{i18n>flagIntKZ}"/>
+						<table:template>
+							<CheckBox id="cbflagIntKZ" selected="{modeloConfig>flagIntKZ}"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="100" sortProperty="flagTL_KA" filterProperty="flagTL_KA">
+						<Label text="{i18n>flagTL_KA}" tooltip="{i18n>flagTL_KA}"/>
+						<table:template>
+							<CheckBox id="cbflagTL_KA" selected="{modeloConfig>flagTL_KA}"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="100" sortProperty="flagTL_1T" filterProperty="flagTL_1T">
+						<Label text="{i18n>flagTL_1T}" tooltip="{i18n>flagTL_1T}"/>
+						<table:template>
+							<CheckBox id="cbflagTL_1T" selected="{modeloConfig>flagTL_1T}"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="100" sortProperty="flagTL_KA_FE" filterProperty="flagTL_KA_FE">
+						<Label text="{i18n>flagTL_KA_FE}" tooltip="{i18n>flagTL_KA_FE}"/>
+						<table:template>
+							<CheckBox id="cbflagTL_KA_FE" selected="{modeloConfig>flagTL_KA_FE}"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="100" sortProperty="flagTL_1T_FE" filterProperty="flagTL_1T_FE">
+						<Label text="{i18n>flagTL_1T_FE}" tooltip="{i18n>flagTL_1T_FE}"/>
+						<table:template>
+							<CheckBox id="cbflagTL_1T_FE" selected="{modeloConfig>flagTL_1T_FE}"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="100" sortProperty="flagTR_L_BBVA" filterProperty="flagTR_L_BBVA">
+						<Label text="{i18n>flagTR_L_BBVA}" tooltip="{i18n>flagTR_L_BBVA}"/>
+						<table:template>
+							<CheckBox id="cbflagTR_L_BBVA" selected="{modeloConfig>flagTR_L_BBVA}"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="100" sortProperty="flagTR_L_BMX" filterProperty="flagTR_L_BMX">
+						<Label text="{i18n>flagTR_L_BMX}" tooltip="{i18n>flagTR_L_BMX}"/>
+						<table:template>
+							<CheckBox id="cbflagTR_L_BMX" selected="{modeloConfig>flagTR_L_BMX}"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="active" filterProperty="active">
+						<Label text="{i18n>active}" tooltip="{i18n>active}"/>
+						<table:template>
+							<CheckBox id="cbactive" selected="{modeloConfig>active}"/>
+						</table:template>
+					</table:Column>
+				</table:columns>
+			</table:Table>
+		</semantic:content>
+		<!-- Semantic Footer Buttons -->
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveAction" text="{i18n>txtGuardar}" press="onSave"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button id="cancelAction" text="{i18n>txtDescartar}" press="onDiscard"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

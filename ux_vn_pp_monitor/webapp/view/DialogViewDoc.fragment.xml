@@ -1,0 +1,152 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogViewDoc" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="true" title="{i18n>ViwDocTit}" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<Panel expandable="true" expand="onExpandHead" headerText="{i18n>TituloListDoc}" id="panelHead" width="100%" expanded="true">
+				<content>
+					<uitab:Table id="tableViewDoc"
+						rows="{ path: 'modeloItems>/DocLogSet', sorter: [{ path: 'unidadID', descending: false }, { path: 'logDate', descending: true }], filters : [ { path : 'BUKRS', operator : 'EQ', value1 : 'XXXX'} ]}"
+						selectionMode="None" width="100%" rowActionCount="1">
+						<uitab:rowSettingsTemplate>
+							<uitab:RowSettings highlight="{= (${modeloItems>STBLG} === '')? 'Success' : 'Error' }"/>
+						</uitab:rowSettingsTemplate>
+						<uitab:rowActionTemplate visible="true">
+							<uitab:RowAction>
+								<uitab:items>
+									<uitab:RowActionItem press="onPressViewDoc" type="Navigation" icon="sap-icon://feeder-arrow"/>
+								</uitab:items>
+							</uitab:RowAction>
+						</uitab:rowActionTemplate>
+						<uitab:columns>
+							<uitab:Column sortProperty="logDate" filterProperty="logDate" minWidth="120" autoResizable="true">
+								<Text text="{i18n>collogDate}" wrapping="true" maxLines="2"/>
+								<uitab:template>
+									<Text text="{modeloItems>logDate}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="logText" filterProperty="logText" minWidth="300" autoResizable="true">
+								<Text text="{i18n>collogText}" wrapping="true" maxLines="2"/>
+								<uitab:template>
+									<Text text="{modeloItems>logText}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="BELNR" filterProperty="BELNR" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colBELNR}"/>
+								<uitab:template>
+									<Text text="{modeloItems>BELNR}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="BUKRS" filterProperty="BUKRS" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colBUKRS}"/>
+								<uitab:template>
+									<Text text="{modeloItems>BUKRS}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="GJAHR" filterProperty="GJAHR" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colGJAHR}"/>
+								<uitab:template>
+									<Text text="{modeloItems>GJAHR}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="BLART" filterProperty="BLART" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colBLART}"/>
+								<uitab:template>
+									<Text text="{modeloItems>BLART}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="STBLG" filterProperty="STBLG" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colSTBLG}"/>
+								<uitab:template>
+									<Text text="{modeloItems>STBLG}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+						</uitab:columns>
+					</uitab:Table>
+				</content>
+			</Panel>
+			<Panel expandable="true" visible="false" expand="onExpandPos" headerText="Posiciones:" id="panelDet" width="100%">
+				<content>
+					<uitab:Table id="tableViewDocDet" rows="{ path: 'S4_0001_SRV>/FdItemsSet', sorter: [{ path: 'Buzei', descending: false }]}"
+						selectionMode="None" width="100%">
+						<uitab:columns>
+							<uitab:Column sortProperty="Buzei" filterProperty="Buzei" minWidth="10" autoResizable="true">
+								<Text text="{i18n>mensaPos}" wrapping="true" maxLines="2"/>
+								<uitab:template>
+									<Text text="{S4_0001_SRV>Buzei}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="Bschl" filterProperty="Bschl" minWidth="10" autoResizable="true">
+								<Text text="{i18n>mensajeClvCT}" wrapping="true" maxLines="2"/>
+								<uitab:template>
+									<Text text="{S4_0001_SRV>Bschl}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="Gsber" filterProperty="Gsber" minWidth="12" autoResizable="true">
+								<Text text="{i18n>mensajeDiv}" wrapping="true" maxLines="1"/>
+								<uitab:template>
+									<Text text="{S4_0001_SRV>Gsber}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column sortProperty="Sgtxt" filterProperty="Sgtxt" minWidth="300" autoResizable="true">
+								<Text text="{i18n>mensajeTextPos}" wrapping="true" maxLines="2"/>
+								<uitab:template>
+									<Text text="{S4_0001_SRV>Sgtxt}" tooltip="{S4_0001_SRV>Sgtxt}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="Account" filterProperty="Account" minWidth="300" autoResizable="true">
+								<Text text="{i18n>mensajeCuenta}"/>
+								<uitab:template>
+									<Text text="{S4_0001_SRV>Account}: {S4_0001_SRV>Description}" tooltip="{S4_0001_SRV>Description}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="Zuonr" filterProperty="Zuonr" minWidth="100" autoResizable="true">
+								<Text text="{i18n>mensajeAsignacion}"/>
+								<uitab:template>
+									<Text text="{S4_0001_SRV>Zuonr}" tooltip="{S4_0001_SRV>Zuonr}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="Segment" filterProperty="Segment" minWidth="100" autoResizable="true">
+								<Text text="{i18n>colSegment}"/>
+								<uitab:template>
+									<Text text="{S4_0001_SRV>Segment}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="Prctr" filterProperty="Prctr" minWidth="100" autoResizable="true">
+								<Text text="{i18n>mensajeCenterBenefic}"/>
+								<uitab:template>
+									<Text text="{S4_0001_SRV>Prctr}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="Waers" filterProperty="Waers" minWidth="100" autoResizable="true">
+								<Text text="{i18n>mensajeMoneda}"/>
+								<uitab:template>
+									<Text text="{S4_0001_SRV>Waers}" wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+							<uitab:Column width='auto' sortProperty="Wrbtr" filterProperty="Wrbtr" minWidth="120" autoResizable="true" hAlign="Right">
+								<Text text="{i18n>anularimporte}"/>
+								<uitab:template>
+									<Text
+										text="{ path: 'S4_0001_SRV>Wrbtr', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2, roundingMode: 'away_from_zero' } }"
+										wrapping="false"/>
+								</uitab:template>
+							</uitab:Column>
+						</uitab:columns>
+						<uitab:footer>
+							<Label text="Sumatoria Importes: 0.00" design="Bold" textAlign="Right"/>
+						</uitab:footer>
+					</uitab:Table>
+				</content>
+			</Panel>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>cancelaranu}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress1"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

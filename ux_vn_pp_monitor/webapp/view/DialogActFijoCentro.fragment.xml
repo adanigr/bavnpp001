@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>sDialogCentrosTitulo}" class="sapUiPopupWithPadding" items="{S4_0001_SRV>/CentrosSet}" showClearButton="true"
+		search="_onSearchCent" confirm="_onConfirmCent" cancel="_onCanelCent" multiSelect="false" rememberSelections="false" id="sdCentro">
+		<StandardListItem iconDensityAware="false" iconInset="false" title="{S4_0001_SRV>Name1}" description="{S4_0001_SRV>Werks}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

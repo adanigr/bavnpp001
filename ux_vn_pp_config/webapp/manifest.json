@@ -1,0 +1,709 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "vn.pp.ux_vn_pp_config",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/srv_api/data/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0",
+					"localUri": "/srv_api/data/metadata.xml"
+				}
+			},
+			"catalogs": {
+				"uri": "/srv_api/catalogs/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0",
+					"localUri": "/srv_api/catalogs/metadata.xml"
+				}
+			},
+			"configData": {
+				"uri": "/srv_api/config/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0",
+					"localUri": "/srv_api/config/metadata.xml"
+				}
+			},
+			"configDataV2": {
+				"uri": "/srv_api/v2/config/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "/srv_api/config/metadata.xml"
+				}
+			},
+			"function": {
+				"uri": "/srv_api/function/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0",
+					"localUri": "/srv_api/catalogs/metadata.xml"
+				}
+			},
+			"operations": {
+				"uri": "/srv_api/operations/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0",
+					"localUri": "/srv_api/catalogs/metadata.xml"
+				}
+			},
+			"DataHelpValue": {
+				"type": "JSON",
+				"uri": "model/model.json"
+			},
+			"Z_OD_SCP_CORE_0001_SRV": {
+				"uri": "/s4_dev/sap/opu/odata/sap/Z_OD_SCP_CORE_0001_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/Z_OD_SCP_CORE_0001_SRV/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "vn.pp.ux_vn_pp_config.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "vn.pp.ux_vn_pp_config.i18n.i18n"
+				}
+			},
+			"modeloItems": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"groupId": "$auto",
+					"synchronizationMode": "None",
+					"autoExpandSelect": true
+				}
+			},
+			"modeloConfig": {
+				"dataSource": "configData",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"groupId": "$auto",
+					"synchronizationMode": "None",
+					"autoExpandSelect": true
+				}
+			},
+			"modeloCatalog": {
+				"dataSource": "catalogs",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"groupId": "$auto",
+					"synchronizationMode": "None",
+					"autoExpandSelect": true
+				}
+			},
+			"modeloFunction": {
+				"dataSource": "function",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"groupId": "$auto",
+					"synchronizationMode": "None",
+					"autoExpandSelect": true
+				}
+			},
+			"modeloOperation": {
+				"dataSource": "operations",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"groupId": "$auto",
+					"synchronizationMode": "None",
+					"autoExpandSelect": true
+				}
+			},
+			"HelpValues": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "DataHelpValue"
+			},
+			"S4_0001_SRV": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "Z_OD_SCP_CORE_0001_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "vn.pp.ux_vn_pp_config.view",
+				"controlAggregation": "pages",
+				"controlId": "App",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "Start",
+				"pattern": "",
+				"target": [
+					"Start"
+				]
+			}, {
+				"name": "FinTypes_001",
+				"pattern": "FinTypes_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinTypes_001"
+				]
+			}, {
+				"name": "FinTypes_001_new",
+				"pattern": "FinTypes_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinTypes_001_new"
+				]
+			}, {
+				"name": "RateTypesValues_001",
+				"pattern": "RateTypesValues_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"RateTypesValues_001"
+				]
+			}, {
+				"name": "RateTypesValues_001_new",
+				"pattern": "RateTypesValues_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"RateTypesValues_001_new"
+				]
+			}, {
+				"name": "FinSrvs_001",
+				"pattern": "FinSrvs_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinSrvs_001"
+				]
+			}, {
+				"name": "FinSrvs_001_new",
+				"pattern": "FinSrvs_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinSrvs_001_new"
+				]
+			}, {
+				"name": "FinSrvs_001",
+				"pattern": "FinSrvs_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinSrvs_001"
+				]
+			}, {
+				"name": "FinSrvs_001_new",
+				"pattern": "FinSrvs_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinSrvs_001_new"
+				]
+			}, {
+				"name": "FundTypes_001",
+				"pattern": "FundTypes_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FundTypes_001"
+				]
+			}, {
+				"name": "FundTypes_001_new",
+				"pattern": "FundTypes_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FundTypes_001_new"
+				]
+			}, {
+				"name": "FundSubTypes_001",
+				"pattern": "FundSubTypes_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FundSubTypes_001"
+				]
+			}, {
+				"name": "FundSubTypes_001_new",
+				"pattern": "FundSubTypes_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FundSubTypes_001_new"
+				]
+			}, {
+				"name": "RateTypes_001",
+				"pattern": "RateTypes_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"RateTypes_001"
+				]
+			}, {
+				"name": "RateTypes_001_new",
+				"pattern": "RateTypes_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"RateTypes_001_new"
+				]
+			}, {
+				"name": "CodPro_001",
+				"pattern": "CodPro_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"CodPro_001"
+				]
+			}, {
+				"name": "CodPro_001_new",
+				"pattern": "CodPro_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"CodPro_001_new"
+				]
+			}, {
+				"name": "CostsFin_001",
+				"pattern": "CostsFin_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"CostsFin_001"
+				]
+			}, {
+				"name": "CostsFin_001_new",
+				"pattern": "CostsFin_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"CostsFin_001_new"
+				]
+			}, {
+				"name": "FinOperAccs_001",
+				"pattern": "FinOperAccs_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinOperAccs_001"
+				]
+			}, {
+				"name": "FinOperAccs_001_new",
+				"pattern": "FinOperAccs_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinOperAccs_001_new"
+				]
+			}, {
+				"name": "FinSrvComps_001",
+				"pattern": "FinSrvComps_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinSrvComps_001"
+				]
+			}, {
+				"name": "FinSrvComps_001_new",
+				"pattern": "FinSrvComps_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinSrvComps_001_new"
+				]
+			}, {
+				"name": "FinSrvCredits_001",
+				"pattern": "FinSrvCredits_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinSrvCredits_001"
+				]
+			}, {
+				"name": "FinSrvCredits_001_new",
+				"pattern": "FinSrvCredits_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinSrvCredits_001_new"
+				]
+			}, {
+				"name": "FundSubTypeComps_001",
+				"pattern": "FundSubTypeComps_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FundSubTypeComps_001"
+				]
+			}, {
+				"name": "FundSubTypeComps_001_new",
+				"pattern": "FundSubTypeComps_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FundSubTypeComps_001_new"
+				]
+			}, {
+				"name": "FundTypeComps_001",
+				"pattern": "FundTypeComps_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FundTypeComps_001"
+				]
+			}, {
+				"name": "FundTypeComps_001_new",
+				"pattern": "FundTypeComps_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FundTypeComps_001_new"
+				]
+			}, {
+				"name": "MMTrans_001",
+				"pattern": "MMTrans_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"MMTrans_001"
+				]
+			}, {
+				"name": "MMTrans_001_new",
+				"pattern": "MMTrans_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"MMTrans_001_new"
+				]
+			}, {
+				"name": "TransferAccs_001",
+				"pattern": "TransferAccs_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"TransferAccs_001"
+				]
+			}, {
+				"name": "TransferAccs_001_new",
+				"pattern": "TransferAccs_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"TransferAccs_001_new"
+				]
+			}, {
+				"name": "FinFunTypes_001",
+				"pattern": "FinFunTypes_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinFunTypes_001"
+				]
+			}, {
+				"name": "FinFunTypes_001_new",
+				"pattern": "FinFunTypes_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinFunTypes_001_new"
+				]
+			}, {
+				"name": "FinRates_001",
+				"pattern": "FinRates_001",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinRates_001"
+				]
+			}, {
+				"name": "FinRates_001_new",
+				"pattern": "FinRates_001_new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": [
+					"FinRates_001_new"
+				]
+			}],
+			"targets": {
+				"Start": {
+					"viewType": "XML",
+					"viewName": "Start",
+					"viewLevel": 1
+				},
+				"FinTypes_001": {
+					"viewType": "XML",
+					"viewName": "FinTypes_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FinTypes_001_new": {
+					"viewType": "XML",
+					"viewName": "FinTypes_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"RateTypesValues_001": {
+					"viewType": "XML",
+					"viewName": "RateTypesValues_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"RateTypesValues_001_new": {
+					"viewType": "XML",
+					"viewName": "RateTypesValues_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FinSrvs_001": {
+					"viewType": "XML",
+					"viewName": "FinSrvs_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FinSrvs_001_new": {
+					"viewType": "XML",
+					"viewName": "FinSrvs_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FundTypes_001": {
+					"viewType": "XML",
+					"viewName": "FundTypes_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FundTypes_001_new": {
+					"viewType": "XML",
+					"viewName": "FundTypes_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FundSubTypes_001": {
+					"viewType": "XML",
+					"viewName": "FundSubTypes_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FundSubTypes_001_new": {
+					"viewType": "XML",
+					"viewName": "FundSubTypes_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"RateTypes_001": {
+					"viewType": "XML",
+					"viewName": "RateTypes_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"RateTypes_001_new": {
+					"viewType": "XML",
+					"viewName": "RateTypes_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"CodPro_001": {
+					"viewType": "XML",
+					"viewName": "CodPro_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"CodPro_001_new": {
+					"viewType": "XML",
+					"viewName": "CodPro_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"CostsFin_001": {
+					"viewType": "XML",
+					"viewName": "CostsFin_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"CostsFin_001_new": {
+					"viewType": "XML",
+					"viewName": "CostsFin_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FinOperAccs_001": {
+					"viewType": "XML",
+					"viewName": "FinOperAccs_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FinOperAccs_001_new": {
+					"viewType": "XML",
+					"viewName": "FinOperAccs_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FinSrvComps_001": {
+					"viewType": "XML",
+					"viewName": "FinSrvComps_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FinSrvComps_001_new": {
+					"viewType": "XML",
+					"viewName": "FinSrvComps_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FinSrvCredits_001": {
+					"viewType": "XML",
+					"viewName": "FinSrvCredits_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FinSrvCredits_001_new": {
+					"viewType": "XML",
+					"viewName": "FinSrvCredits_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FundSubTypeComps_001": {
+					"viewType": "XML",
+					"viewName": "FundSubTypeComps_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FundSubTypeComps_001_new": {
+					"viewType": "XML",
+					"viewName": "FundSubTypeComps_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FundTypeComps_001": {
+					"viewType": "XML",
+					"viewName": "FundTypeComps_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FundTypeComps_001_new": {
+					"viewType": "XML",
+					"viewName": "FundTypeComps_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"MMTrans_001": {
+					"viewType": "XML",
+					"viewName": "MMTrans_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"MMTrans_001_new": {
+					"viewType": "XML",
+					"viewName": "MMTrans_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"TransferAccs_001": {
+					"viewType": "XML",
+					"viewName": "TransferAccs_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"TransferAccs_001_new": {
+					"viewType": "XML",
+					"viewName": "TransferAccs_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FinFunTypes_001": {
+					"viewType": "XML",
+					"viewName": "FinFunTypes_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FinFunTypes_001_new": {
+					"viewType": "XML",
+					"viewName": "FinFunTypes_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				},
+				"FinRates_001": {
+					"viewType": "XML",
+					"viewName": "FinRates_001",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"FinRates_001_new": {
+					"viewType": "XML",
+					"viewName": "FinRates_001_new",
+					"viewLevel": 3,
+					"transition": "flip"
+				}
+			}
+		}
+	}
+}

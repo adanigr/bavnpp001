@@ -1,0 +1,127 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogAyuda" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form" async="true">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" contentWidth="70%" contentHeight="80%" stretch="false"
+		title="{i18n>tituloAyuda}" type="Standard" verticalScrolling="true">
+		<content>
+			<Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+				class="sapUiResponsiveMargin">
+				<infoToolbar>
+					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+						<content>
+							<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</content>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar/>
+				<columns>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Botón" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Descripción" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</header>
+						<footer/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://add-product" tooltip="{i18n>tablaBtnActFij}" id="btnhelpActFij"/>
+							<Text text="{i18n>tablaBtnActFij}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://shipping-status" tooltip="{i18n>tablaBtnSal}" id="btnhelpSal"/>
+							<Text text="{i18n>tablaBtnSal}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://toaster-up" tooltip="{i18n>tablaBtnTrasp}" id="btnhelpTrasp"/>
+							<Text text="{i18n>tablaBtnTrasp}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://reset" tooltip="{i18n>tablaBtnTraspAnu}" id="btnhelpTraspAnu"/>
+							<Text text="{i18n>tablaBtnTraspAnu}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://customer-financial-fact-sheet" tooltip="{i18n>tablaBtnPropPag}" id="btnhelpPropPag"/>
+							<Text text="{i18n>tablaBtnPropPag}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://payment-approval" tooltip="{i18n>tablaBtnConfPag}" id="btnhelpConfPag"/>
+							<Text text="{i18n>tablaBtnConfPag}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://expense-report" tooltip="{i18n>tablaBtnComp}" id="btnhelpComp"/>
+							<Text text="{i18n>tablaBtnComp}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://unpaid-leave" tooltip="{i18n>tablaBtnAnu}" id="btnhelpAnu"/>
+							<Text text="{i18n>tablaBtnAnu}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://collections-insight" tooltip="{i18n>tablaBtnTipoCam}" id="btnhelpTipoCam"/>
+							<Text text="{i18n>tablaBtnTipoCam}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://time-overtime" tooltip="{i18n>tablaBtnSegFin}" id="btnhelpSegFin"/>
+							<Text text="{i18n>tablaBtnSegFin}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://simulate" tooltip="{i18n>tablaBtnIntBBVA}" id="btnhelpIntBBVA"/>
+							<Text text="{i18n>tablaBtnIntBBVA}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://date-time" tooltip="{i18n>tablaBtnRecalBBVA}" id="btnhelpRecalBBVA"/>
+							<Text text="{i18n>tablaBtnRecalBBVA}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://excel-attachment" tooltip="{i18n>btnExcel}" id="bthelpnexcel"/>
+							<Text text="{i18n>btnExcel}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem type="Active">
+						<cells>
+							<Button icon="sap-icon://sap-logo-shape" tooltip="{i18n>btnViewDoc}" id="bthelpnView"/>
+							<Text text="{i18n>btnViewDoc}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>cerrarDialogo}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="onButtonPressClose"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

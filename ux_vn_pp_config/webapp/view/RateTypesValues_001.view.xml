@@ -1,0 +1,75 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic" controllerName="vn.pp.ux_vn_pp_config.controller.RateTypesValues_001"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:SemanticPage id="RateTypesValues_001" headerPinnable="false" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+		headerExpanded="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="RateTypesValues_001"/>
+		</semantic:titleHeading>
+		<!-- Header Content -->
+		<semantic:headerContent>
+			<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="false" showClearButton="false">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="_RateTypesValues_001" name="A" label="{i18n>rateType}" labelTooltip="{i18n>rateType}"
+						partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<ComboBox id="cbTipoTasa" items="{ path: 'modeloCatalog>/RateTypes', templateSharable: false }">
+								<core:Item key="{modeloCatalog>rate}" text="{modeloCatalog>rate}"/>
+							</ComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="_RateTypesValues_001" name="B" label="{i18n>rateDate}" labelTooltip="{i18n>rateDate}"
+						partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<DateRangeSelection id="drsFechaTasa"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<table:Table visibleRowCountMode="Auto" id="tableRateTypesValues_001"
+				rows="{path: 'modeloConfig>/RateTypesValues_001', parameters : {$$updateGroupId : 'RateTypesValues_001'}, sorter: [{ path: 'date', descending: true }]}"
+				selectionMode="MultiToggle" paste="onPaste" ariaLabelledBy="title">
+				<table:extension>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://delete" tooltip="{i18n>btnDel}" id="btnDel" press="onDelRecord"/>
+						<Button icon="sap-icon://add" tooltip="{i18n>btnAdd}" id="btnAdd" press="onNewRecord"/>
+						<ToolbarSeparator/>
+						<Button icon="sap-icon://excel-attachment" tooltip="{i18n>btnExcel}" id="btnExcel" press="onDataExport"/>
+					</OverflowToolbar>
+				</table:extension>
+				<table:columns>
+					<table:Column sortProperty="rate" filterProperty="rate">
+						<Label text="{i18n>rateType}"/>
+						<table:template>
+							<Text text="{modeloConfig>rate}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="date" filterProperty="date" filterType="sap.ui.model.type.Date">
+						<Label text="{i18n>rateDate}"/>
+						<table:template>
+							<Text text="{modeloConfig>date}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="rateValue" filterProperty="rateValue">
+						<Label text="{i18n>rateValue}"/>
+						<table:template>
+							<Input value="{modeloConfig>rateValue}" change="onValidateRate"/>
+						</table:template>
+					</table:Column>
+				</table:columns>
+			</table:Table>
+		</semantic:content>
+		<!-- Semantic Footer Buttons -->
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveAction" text="{i18n>txtGuardar}" press="onSave"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button id="cancelAction" text="{i18n>txtDescartar}" press="onDiscard"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

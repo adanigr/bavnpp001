@@ -1,0 +1,207 @@
+{
+	"ShowDayIntTable": false,
+	"CuentaOrigen": [{
+		"key": "111/9260426",
+		"name": "Banamex Cuenta 1",
+		"layout": "002"
+	}, {
+		"key": "450550248",
+		"name": "BBVA Cuenta 1",
+		"layout": "012"
+	}, {
+		"key": "450550249",
+		"name": "BBVA Cuenta 2",
+		"layout": "012"
+	}],
+	"CuentaDestino": [{
+		"key": "183/9111483",
+		"name": "BANAMEX NORTRACK GDL",
+		"layout": "BMX"
+	}, {
+		"key": "8000613",
+		"name": "BBVA CIE 1",
+		"layout": "BBVA"
+	}, {
+		"key": "8000614",
+		"name": "BBVA CIE 2",
+		"layout": "BBVA"
+	}],
+	"Sociedad": [{
+		"key": "1101",
+		"name": "ZAPATA S.A.DE C.V."
+	}, {
+		"key": "1102",
+		"name": "VEHICULOS JAPONESES ZAPATA"
+	}, {
+		"key": "4100",
+		"name": "ZAPATA CAMIONES S.A.DE C.V."
+	}],
+	"Segmentos": [{
+		"key": "0000000100",
+		"name": "VEHICULOS NUEVOS"
+	}, {
+		"key": "0000000300",
+		"name": "CARGA"
+	}, {
+		"key": "0000000301",
+		"name": "PASAJE"
+	}, {
+		"key": "0000000302",
+		"name": "VANES"
+	}, {
+		"key": "0000000303",
+		"name": "TRACTO"
+	}],
+	"Division": [{
+		"key": "0100",
+		"name": "División 1"
+	}, {
+		"key": "0101",
+		"name": "División 2"
+	}, {
+		"key": "0102",
+		"name": "División 3"
+	}, {
+		"key": "0103",
+		"name": "División 4"
+	}, {
+		"key": "0104",
+		"name": "División 5"
+	}],
+	"Centro": [{
+		"key": "0100",
+		"name": "FORD TLALNEPANTLA",
+		"sociedad": "1101"
+	}, {
+		"key": "0101",
+		"name": "FORD ATIZAPAN",
+		"sociedad": "1101"
+	}, {
+		"key": "0102",
+		"name": "FORD PACHUCA",
+		"sociedad": "1101"
+	}, {
+		"key": "0103",
+		"name": "FORD TULA",
+		"sociedad": "1101"
+	}, {
+		"key": "0104",
+		"name": "FORD TULANCINGO",
+		"sociedad": "1101"
+	}, {
+		"key": "0200",
+		"name": "MAZDA TLALNEPANTLA",
+		"sociedad": "1102"
+	}, {
+		"key": "0201",
+		"name": "MAZDA TORRE NORTE",
+		"sociedad": "1102"
+	}, {
+		"key": "0202",
+		"name": "MAZDA LINDA VISTA",
+		"sociedad": "1102"
+	}, {
+		"key": "0203",
+		"name": "MAZDA CUAUTITLAN",
+		"sociedad": "1102"
+	}, {
+		"key": "0204",
+		"name": "MAZDA QUERETARO",
+		"sociedad": "1102"
+	}, {
+		"key": "0205",
+		"name": "MAZDA CELAYA",
+		"sociedad": "1102"
+	}, {
+		"key": "0206",
+		"name": "MAZDA SAN JUAN DEL RIO",
+		"sociedad": "1102"
+	}, {
+		"key": "0207",
+		"name": "MAZDA ZONA ESMERALDA",
+		"sociedad": "1102"
+	}, {
+		"key": "4100",
+		"name": "CAMIONES TLALNEPANTLA",
+		"sociedad": "4100"
+	}],
+	"Almacen": [{
+		"key": "0100",
+		"name": "Almacen 1"
+	}, {
+		"key": "0101",
+		"name": "Almacen 2"
+	}, {
+		"key": "0102",
+		"name": "Almacen 3"
+	}, {
+		"key": "0103",
+		"name": "Almacen 4"
+	}, {
+		"key": "0104",
+		"name": "Almacen 5"
+	}],
+	"Marca": [{
+		"key": "MA",
+		"name": "Mazda"
+	}, {
+		"key": "F",
+		"name": "Ford"
+	}, {
+		"key": "HY",
+		"name": "Hyundai"
+	}],
+	"Moneda": [{
+		"key": "MXN",
+		"name": "Pesos Mexicanos"
+	}, {
+		"key": "USD",
+		"name": "Dólares Estadounidenses"
+	}],
+	"TipoUnidad": [{
+		"key": "N",
+		"name": "Unidades Nuevas"
+	}, {
+		"key": "U",
+		"name": "Unidades Usadas"
+	}, {
+		"key": "C",
+		"name": "Cesión"
+	}, {
+		"key": "D",
+		"name": "Demo o activo fijo"
+	}],
+	"Financiera": [{
+		"key": "BCM",
+		"name": "BBVA BANCOMER S.A."
+	}, {
+		"key": "BMX",
+		"name": "BANAMEX"
+	}, {
+		"key": "DEBCA",
+		"name": "DAIMLER CHRYSLER SERVICES COMERCIAL TLAL"
+	}, {
+		"key": "DEBSP",
+		"name": "DAIMLER CHRYSLER SERVICES COMERCIAL - SP"
+	}],
+	"EstatusUni": [{
+		"key": "FIN",
+		"name": "Financiamiento"
+	}, {
+		"key": "SAL",
+		"name": "Salida Final"
+	}, {
+		"key": "PRO",
+		"name": "Propuesta de pago"
+	}, {
+		"key": "PAG",
+		"name": "Pagado"
+	}],
+	"TipoFina": [{
+		"key": "CHASIS",
+		"name": "Financiamiento de Chasis"
+	}, {
+		"key": "ACCESORIO",
+		"name": "Financiamiento de Accesorios"
+	}]
+}

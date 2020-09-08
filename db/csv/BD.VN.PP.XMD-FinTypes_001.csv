@@ -1,0 +1,6 @@
+finType;description;flagUnitPayInterest;flagRecalUnit;flagSaveInt;flagSaveIntKR;flagSaveIntKZ
+BBVA;Intereses para financieras tipo BBVA Bancomer;true;true;true;true;true
+SCOTIA;Intereses para financieras tipo Scotiabank;false;false;true;false;false
+DAIMLER;Intereses para financieras tipo Daimler Financial Services;false;false;true;false;false
+CORP;Intereses para financieras tipo Corporativo Zapata;true;true;true;false;false
+SANT_CAP;Intereses para financieras tipo Línea Capital Santander;true;true;true;false;false

@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>colGam}" class="sapUiPopupWithPadding"
+		items="{ path:'modeloCatalog>/CaractSet', filters : [ { path : 'Charactname', operator : 'EQ', value1 : 'ZAP_GAMA'} ], templateShareable:true }"
+		showClearButton="true" search="_onSearchGama" confirm="_onConfirmGama" cancel="_onCanelGama" multiSelect="false" rememberSelections="false"
+		id="sdGamaa">
+		<StandardListItem iconDensityAware="false" iconInset="false" title="{modeloCatalog>ValueCharLong}"
+			description="{modeloCatalog>DescriptionLong}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

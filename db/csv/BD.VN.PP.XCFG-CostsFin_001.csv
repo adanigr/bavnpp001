@@ -1,0 +1,8 @@
+companyCode,fundSubType_id,costCode,sap1T_Code,sapKA_Code,sap1T_Text,sapKA_Text,itemText,active
+4100,UN_VN,00,NF_KI,NF_KA,Financiera Ingresos,Financiera,COSTO UNIDAD,true
+4100,UN_VN,01,NF_KI,NF_KA,Financiera Ingresos,Financiera,COSTO CUOTA,true
+4100,UN_VN,05,NF_KI,NF_KA,Financiera Ingresos,Financiera,COSTO PUBLICIDAD,true
+4100,UN_VN,06,NF_KI,NF_KA,Financiera Ingresos,Financiera,COSTO TRASLADO,true
+4100,ACCS_1,ACCES,NF_KI,NF_KA,Financiera Ingresos,Financiera,ACCESORIO,true
+4100,ACCS_FE,07,NF_KI,NF_KA,Fondo estrella,Fondo estrella,FONDO ESTRELLA,true
+4100,UN_VD,AF,AF_1T,AF_KA,Financiera Ingresos AF,Financiera AF,COSTO UNIDAD,true

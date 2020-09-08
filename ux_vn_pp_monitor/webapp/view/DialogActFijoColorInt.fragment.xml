@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>colColInt}" class="sapUiPopupWithPadding"
+		items="{ path:'modeloCatalog>/CaractSet', filters : [ { path : 'Charactname', operator : 'EQ', value1 : 'ZAP_COLOR_INTERNO'} ], templateShareable:true }"
+		showClearButton="true" search="_onSearchColorInt" confirm="_onConfirmColorInt" cancel="_onCanelColorInt" multiSelect="false"
+		rememberSelections="false" id="sdColorExt">
+		<StandardListItem iconDensityAware="false" iconInset="false" title="{modeloCatalog>ValueCharLong}"
+			description="{modeloCatalog>DescriptionLong}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

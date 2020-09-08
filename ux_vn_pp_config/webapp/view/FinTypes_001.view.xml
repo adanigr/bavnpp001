@@ -1,0 +1,92 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic" controllerName="vn.pp.ux_vn_pp_config.controller.FinTypes_001" xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:SemanticPage id="FinTypes_001" headerPinnable="false" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+		headerExpanded="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="FinTypes_001"/>
+		</semantic:titleHeading>
+		<!-- Header Content -->
+		<semantic:headerContent>
+			<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="false" showClearButton="false">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="_FinTypes_001" name="A" label="{i18n>finType}" labelTooltip="{i18n>rateType}" partOfCurrentVariant="true"
+						visibleInFilterBar="true">
+						<fb:control>
+							<ComboBox id="cbFinType" items="{ path: 'modeloConfig>/FinTypes_001', templateSharable: false }">
+								<core:Item key="{modeloConfig>finType}" text="{modeloConfig>finType}"/>
+							</ComboBox>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</semantic:headerContent>
+		<!-- Content -->
+		<semantic:content>
+			<table:Table visibleRowCountMode="Auto" id="tableFinTypes_001"
+				rows="{path: 'modeloConfig>/FinTypes_001', parameters : {$$updateGroupId : 'FinTypes_001'}}" selectionMode="MultiToggle" paste="onPaste"
+				ariaLabelledBy="title">
+				<table:extension>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://delete" tooltip="{i18n>btnDel}" id="btnDel" press="onDelRecord"/>
+						<Button icon="sap-icon://add" tooltip="{i18n>btnAdd}" id="btnAdd" press="onNewRecord"/>
+						<ToolbarSeparator/>
+						<Button icon="sap-icon://excel-attachment" tooltip="{i18n>btnExcel}" id="btnExcel" press="onDataExport"/>
+					</OverflowToolbar>
+				</table:extension>
+				<table:columns>
+					<table:Column sortProperty="finType" filterProperty="finType">
+						<Label text="{i18n>finType}" tooltip="{i18n>finType}"/>
+						<table:template>
+							<Text text="{modeloConfig>finType}" wrapping="false"/>
+						</table:template>
+					</table:Column>
+					<table:Column minWidth="180" sortProperty="description" filterProperty="description" filterType="sap.ui.model.type.Date">
+						<Label text="{i18n>description}" tooltip="{i18n>description}"/>
+						<table:template>
+							<Input value="{modeloConfig>description}"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="flagUnitPayInterest" filterProperty="flagUnitPayInterest">
+						<Label text="{i18n>flagUnitPayInterest}" tooltip="{i18n>flagUnitPayInterest}"/>
+						<table:template>
+							<CheckBox id="cbflagUnitPayInterest" select="onflagUnitPayInterest" selected="{modeloConfig>flagUnitPayInterest}"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="flagRecalUnit" filterProperty="flagRecalUnit">
+						<Label text="{i18n>flagRecalUnit}" tooltip="{i18n>flagRecalUnit}"/>
+						<table:template>
+							<CheckBox id="cbflagRecalUnit" select="onflagRecalUnit" selected="{modeloConfig>flagRecalUnit}"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="flagSaveInt" filterProperty="flagSaveInt">
+						<Label text="{i18n>flagSaveInt}" tooltip="{i18n>flagSaveInt}"/>
+						<table:template>
+							<CheckBox id="cbflagSaveInt" select="onflagSaveInt" selected="{modeloConfig>flagSaveInt}"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="flagSaveIntKR" filterProperty="flagSaveIntKR">
+						<Label text="{i18n>flagSaveIntKR}" tooltip="{i18n>flagSaveIntKR}"/>
+						<table:template>
+							<CheckBox id="cbflagSaveIntKR" select="onflagSaveIntKR" selected="{modeloConfig>flagSaveIntKR}"/>
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="flagSaveIntKZ" filterProperty="flagSaveIntKZ">
+						<Label text="{i18n>flagSaveIntKZ}" tooltip="{i18n>flagSaveIntKZ}"/>
+						<table:template>
+							<CheckBox id="cbflagSaveIntKZ" select="onflagSaveIntKZ" selected="{modeloConfig>flagSaveIntKZ}"/>
+						</table:template>
+					</table:Column>
+				</table:columns>
+			</table:Table>
+		</semantic:content>
+		<!-- Semantic Footer Buttons -->
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveAction" text="{i18n>txtGuardar}" press="onSave"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button id="cancelAction" text="{i18n>txtDescartar}" press="onDiscard"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

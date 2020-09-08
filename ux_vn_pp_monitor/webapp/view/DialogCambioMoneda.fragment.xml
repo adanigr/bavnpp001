@@ -1,0 +1,160 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="vn.pp.ux_vn_pp_monitor.controller.DialogCambioMoneda" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uitab="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="true" title="{i18n>CambMonedaTitulo}" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<!-- Inicio de Tabla Traspaso de Unidad -->
+			<uitab:Table id="tablacambm" rowSelectionChange="onSelectionChange" rows="{CambioMonedaCollection>/}" selectionMode="MultiToggle">
+				<uitab:columns>
+					<!--Columna de "Sociedad" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="companyCode" filterProperty="companyCode" minWidth="82" autoResizable="true"
+						tooltip="{i18n>filtroSociedad}">
+						<Text text="{i18n>filtroSociedad}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{CambioMonedaCollection>companyCode}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Centro" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="center" filterProperty="center" minWidth="66" autoResizable="true"
+						tooltip="{i18n>filtroCentro}">
+						<Text text="{i18n>filtroCentro}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{CambioMonedaCollection>center}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Segmento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="segment" filterProperty="segment" minWidth="87" autoResizable="true"
+						tooltip="{i18n>colSegment}">
+						<Text text="{i18n>colSegment}"/>
+						<uitab:template>
+							<Text text="{CambioMonedaCollection>segment}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Vin\Chasis\No.Serie" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="serial" filterProperty="serial" minWidth="167" autoResizable="true"
+						tooltip="{i18n>colChasis}">
+						<Text text="{i18n>colChasis}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{CambioMonedaCollection>serial}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Tipo de Financiamiento" -->
+					<uitab:Column hAlign="Center" width='auto' sortProperty="fundSubType_ID" filterProperty="fundSubType_ID" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colTipofina}">
+						<Text text="{i18n>colTipofina}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{CambioMonedaCollection>fundSubType_ID}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Posición"-->
+					<uitab:Column width='auto' sortProperty="secuence" filterProperty="secuence" minWidth="100" autoResizable="true" tooltip="{i18n>colPosTool}">
+						<Text text="{i18n>colPos}"/>
+						<uitab:template>
+							<Text text="{CambioMonedaCollection>secuence}" wrapping="false" maxLines="1"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna de "Moneda"-->
+					<uitab:Column width='auto' sortProperty="currency" filterProperty="currency" minWidth="100" autoResizable="true" tooltip="{i18n>colMonFin}">
+						<Text text="{i18n>colMonFin}" wrapping="false" maxLines="1"/>
+						<uitab:template>
+							<Text text="{CambioMonedaCollection>currency}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna Costo-->
+					<uitab:Column sortProperty="costAmt" filterProperty="costAmt" minWidth="100" autoResizable="true" tooltip="{i18n>colImpUni}" hAlign="Right">
+						<Text text="{i18n>colImpUni}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'CambioMonedaCollection>costAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna Importe Financiado-->
+					<uitab:Column sortProperty="financedAmt" filterProperty="financedAmt" minWidth="100" autoResizable="true" tooltip="{i18n>colImpFinTool}"
+						hAlign="Right">
+						<Text text="{i18n>colImpFin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'CambioMonedaCollection>financedAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna Saldo Financiamiento-->
+					<uitab:Column sortProperty="balanceAmt" filterProperty="balanceAmt" minWidth="100" autoResizable="true" tooltip="{i18n>colSalFinTool}"
+						hAlign="Right">
+						<Text text="{i18n>colSalFin}" wrapping="true" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'CambioMonedaCollection>balanceAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Fecha Tipo de Cambio" -->
+					<uitab:Column width='auto' sortProperty="exchangeDate" filterProperty="exchangeDate" minWidth="180" autoResizable="true"
+						tooltip="{i18n>colFectipCamb}">
+						<Text text="{i18n>colFectipCamb}"/>
+						<uitab:template>
+							<DatePicker enabled="{=${CambioMonedaCollection>checkCurrEx} === false}"
+								value="{path:'CambioMonedaCollection>exchangeDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"
+								required="true" change="handleFechaInicio"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Tipo de Cambio"-->
+					<uitab:Column width='auto' sortProperty="exchangeRate" filterProperty="exchangeRate" minWidth="150" autoResizable="true"
+						tooltip="{i18n>colTypeFinan}">
+						<Text text="{i18n>colTypeFinan}"/>
+						<uitab:template>
+							<Input enabled="{=${CambioMonedaCollection>checkCurrEx} === false}" value="{CambioMonedaCollection>exchangeRate}" required="true"
+								change="calCambio" liveChange="oValidCaracter"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Nuevo Importe Unidad"-->
+					<uitab:Column width='auto' sortProperty="newcostAmt" filterProperty="newcostAmt" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colnewImportUni}">
+						<Text text="{i18n>colnewImportUni}" wrapping="false" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'CambioMonedaCollection>newcostAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Nuevo Importe Financiado"-->
+					<uitab:Column width='auto' sortProperty="newfinancedAmt" filterProperty="newfinancedAmt" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colnewImportFinan}">
+						<Text text="{i18n>colnewImportFinan}" wrapping="false" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'CambioMonedaCollection>newfinancedAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }"
+								wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Nuevo Saldo Financiamiento"-->
+					<uitab:Column width='auto' sortProperty="newbalanceAmt" filterProperty="newbalanceAmt" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colnewSalFinan}">
+						<Text text="{i18n>colnewSalFinan}" wrapping="false" maxLines="1"/>
+						<uitab:template>
+							<Text text="{ path: 'CambioMonedaCollection>newbalanceAmt', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2} }"
+								wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+					<!--Columna "Moneda"-->
+					<uitab:Column width='auto' sortProperty="newcurrency" filterProperty="newcurrency" minWidth="120" autoResizable="true"
+						tooltip="{i18n>colMonFin}">
+						<Text text="{i18n>colMonFin}" wrapping="false" maxLines="1"/>
+						<uitab:template>
+							<Text text="{CambioMonedaCollection>newcurrency}" wrapping="false"/>
+						</uitab:template>
+					</uitab:Column>
+				</uitab:columns>
+				<uitab:footer>
+					<Label text="{i18n>SumTrasUni}: {oImporteSumatoria>/sumatoriaTraspaso}"/>
+				</uitab:footer>
+			</uitab:Table>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="{i18n>BtnAnular}" icon="sap-icon://decline" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="_onAnularSelect"/>
+			<Button text="{i18n>BtnCopyReplicar}" icon="sap-icon://copy" type="Neutral" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="oCopycambMoneda"/>
+			<Button text="{i18n>Apcambios}" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress"/>
+			<Button text="{i18n>cerrarDialogo}" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonClose"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>
